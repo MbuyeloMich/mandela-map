@@ -156,11 +156,14 @@ function animateCounter(element, start, end, duration = 1000) {
       clearInterval(timer);
     }
     
-    // Format based on value
+    // Format based on element type
+    const value = Math.floor(current);
     if (element.id === 'stat-distance') {
-      element.textContent = Math.floor(current).toLocaleString() + ' km';
+      element.textContent = value.toLocaleString() + ' km';
+    } else if (element.id === 'stat-prison') {
+      element.textContent = value + (value === 1 ? ' yr' : ' yrs');
     } else {
-      element.textContent = Math.floor(current);
+      element.textContent = value.toString();
     }
   }, 16);
 }
@@ -192,7 +195,7 @@ function updateStatsWithAnimation(newValues) {
   }
   
   if (prisonElement && newValues.prison !== undefined) {
-    const currentVal = parseInt(prisonElement.textContent) || 0;
+    const currentVal = parseInt(prisonElement.textContent.replace(/[^0-9]/g, '')) || 0;
     animateCounter(prisonElement, currentVal, newValues.prison, 600);
   }
   
