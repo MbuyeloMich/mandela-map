@@ -1720,7 +1720,6 @@ function updateCurrentLocationMarker(event, previousIndex) {
         height: 24px;
         animation: pulse 1.5s infinite;
       ">
-        <div class="halo"></div>
         <div style="
           position: absolute;
           top: 50%;
@@ -1827,13 +1826,11 @@ function createLocationMarker(
     getPrimaryMarkerType(types),
     getVisitCountClass(visitCount),
     typeColorClass, // Add event type color coding
-    "marker-enter", // fade/scale entrance animation
   ];
 
   if (isCurrent) {
     markerClasses.push("current");
     markerClasses.push("glow-effect"); // Add glow effect to current location
-    markerClasses.push("marker-bounce"); // bounce when reached
   }
   if (isVisited) markerClasses.push("visited");
 
