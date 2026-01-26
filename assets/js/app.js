@@ -30,6 +30,178 @@ function patchMusicDarkMode() {
 }
 
 document.addEventListener('DOMContentLoaded', patchMusicDarkMode);
+
+// ==================== WOW EFFECTS ==================== 
+
+/**
+ * 1. CONFETTI BURST - triggers on major milestones
+ */
+function triggerConfetti() {
+  const confettiPieces = ['🎉', '✨', '🌟', '⭐', '🎊', '🏆', '💫', '🎯'];
+  const numPieces = 30;
+  
+  for (let i = 0; i < numPieces; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.textContent = confettiPieces[Math.floor(Math.random() * confettiPieces.length)];
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.top = '-20px';
+    confetti.style.delay = Math.random() * 0.5 + 's';
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => confetti.remove(), 3000);
+  }
+}
+
+/**
+ * 3. RIPPLE EFFECT - triggers when location changes
+ */
+function triggerRipple(lat, lng) {
+  if (!map) return;
+  
+  const point = map.latLngToContainerPoint([lat, lng]);
+  const ripple = document.createElement('div');
+  ripple.className = 'ripple-effect';
+  ripple.style.left = point.x - 15 + 'px';
+  ripple.style.top = point.y - 15 + 'px';
+  
+  document.getElementById('map').appendChild(ripple);
+  setTimeout(() => ripple.remove(), 1000);
+}
+
+/**
+ * 6. ZOOM-IN ANIMATION - adds to location markers
+ */
+function addZoomInAnimation(marker) {
+  if (!marker || !marker._icon) return;
+  marker._icon.classList.add('location-zoom-in');
+  setTimeout(() => {
+    marker._icon.classList.remove('location-zoom-in');
+  }, 600);
+}
+
+/**
+ * 7. ROTATE BADGES - animate milestone badges
+ */
+function rotateBadge(eventIndex) {
+  const eventMarker = eventMarkers.find(m => {
+    const html = m._icon?.innerHTML;
+    return html && html.includes('milestone-badge');
+  });
+  
+  if (eventMarker && eventMarker._icon) {
+    const badge = eventMarker._icon.querySelector('.milestone-badge');
+    if (badge) {
+      badge.classList.add('spin');
+      setTimeout(() => {
+        badge.classList.remove('spin');
+      }, 800);
+    }
+  }
+}
+
+/**
+ * Check if event is a major milestone and trigger confetti
+ */
+function checkMilestoneAndTriggerEffects(event) {
+  if (!event) return;
+  
+  const eventLower = String(event.event).toLowerCase();
+  const isMilestone = /inaugurat.*president|release.*prison|nobel.*peace|first.*democratic|final.*appearance/i.test(eventLower);
+  
+  if (isMilestone) {
+    triggerConfetti();
+  }
+  
+  // Trigger ripple at location
+  if (event.endCoords) {
+    triggerRipple(event.endCoords[1], event.endCoords[0]);
+  }
+  
+  // Trigger badge rotation
+  rotateBadge(event.index);
+  
+  // Add trail glow to latest path
+  addTrailGlow();
+}
+
+/**
+ * 5. TRAIL GLOW - Add glow effect to recent paths
+ */
+function addTrailGlow() {
+  pathLayers.forEach((path, index) => {
+    if (path._path && index >= pathLayers.length - 3) {
+      path._path.classList.add('trail-glow');
+      setTimeout(() => {
+        path._path.classList.remove('trail-glow');
+      }, 3000);
+    }
+  });
+}
+
+/**
+ * 9. ANIMATED COUNTER - Animate number changes
+ */
+function animateCounter(element, start, end, duration = 1000) {
+  if (!element) return;
+  
+  const range = end - start;
+  const increment = range / (duration / 16);
+  let current = start;
+  
+  const timer = setInterval(() => {
+    current += increment;
+    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+      current = end;
+      clearInterval(timer);
+    }
+    
+    // Format based on value
+    if (element.id === 'stat-distance') {
+      element.textContent = Math.floor(current).toLocaleString() + ' km';
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 16);
+}
+
+/**
+ * Update stats with animation
+ */
+function updateStatsWithAnimation(newValues) {
+  const statsCard = document.getElementById('journey-stats-card');
+  if (statsCard) {
+    statsCard.classList.add('stat-update');
+    setTimeout(() => statsCard.classList.remove('stat-update'), 600);
+  }
+  
+  // Animate each stat
+  const distElement = document.getElementById('stat-distance');
+  const provincesElement = document.getElementById('stat-provinces');
+  const prisonElement = document.getElementById('stat-prison');
+  const internationalElement = document.getElementById('stat-international');
+  
+  if (distElement && newValues.distance !== undefined) {
+    const currentVal = parseInt(distElement.textContent.replace(/[^0-9]/g, '')) || 0;
+    animateCounter(distElement, currentVal, newValues.distance, 800);
+  }
+  
+  if (provincesElement && newValues.provinces !== undefined) {
+    const currentVal = parseInt(provincesElement.textContent) || 0;
+    animateCounter(provincesElement, currentVal, newValues.provinces, 600);
+  }
+  
+  if (prisonElement && newValues.prison !== undefined) {
+    const currentVal = parseInt(prisonElement.textContent) || 0;
+    animateCounter(prisonElement, currentVal, newValues.prison, 600);
+  }
+  
+  if (internationalElement && newValues.international !== undefined) {
+    const currentVal = parseInt(internationalElement.textContent) || 0;
+    animateCounter(internationalElement, currentVal, newValues.international, 600);
+  }
+}
+
 /*!
  * Nelson Mandela's Life Journey Map Visualization - Main Script
  * Author: sansan0
@@ -2424,16 +2596,13 @@ function updateJourneyStats(upToIndex) {
     }
   }
   
-  // Update UI
-  const distElement = document.getElementById('stat-distance');
-  const provincesElement = document.getElementById('stat-provinces');
-  const prisonElement = document.getElementById('stat-prison');
-  const internationalElement = document.getElementById('stat-international');
-  
-  if (distElement) distElement.textContent = Math.round(totalDistance) + ' km';
-  if (provincesElement) provincesElement.textContent = visitedProvinces.size;
-  if (prisonElement) prisonElement.textContent = prisonYears + ' yr' + (prisonYears !== 1 ? 's' : '');
-  if (internationalElement) internationalElement.textContent = internationalTrips;
+  // Update UI with animation
+  updateStatsWithAnimation({
+    distance: Math.round(totalDistance),
+    provinces: visitedProvinces.size,
+    prison: prisonYears,
+    international: internationalTrips
+  });
 }
 
 /**
@@ -2546,6 +2715,11 @@ function showEventAtIndex(index, animated = true, isUserDrag = false) {
   
   // Update current location marker with animated tracking lines
   updateCurrentLocationMarker(event, previousEventIndex);
+  
+  // Trigger WOW effects on event play
+  setTimeout(() => {
+    checkMilestoneAndTriggerEffects(event);
+  }, 300);
 
   if (animated && (isMovingForward || isMovingBackward)) {
     updatePathsAnimated(index, isMovingBackward);
