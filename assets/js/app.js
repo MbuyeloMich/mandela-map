@@ -1,114 +1,79 @@
+// Helper: toggle dark mode for stats card
+function setStatsCardDarkMode(enable) {
+  const statsCard = document.getElementById('journey-stats-card');
+  if (statsCard) {
+    if (enable) {
+      statsCard.classList.add('dark-mode');
+    } else {
+      statsCard.classList.remove('dark-mode');
+    }
+  }
+}
+// Patch music play/pause logic to toggle dark mode on stats card
+function patchMusicDarkMode() {
+  const musicBtn = document.getElementById('music-btn');
+  if (!musicBtn) return;
+  musicBtn.addEventListener('click', () => {
+    setTimeout(() => {
+      if (window.isMusicPlaying) {
+        setStatsCardDarkMode(true);
+      } else {
+        setStatsCardDarkMode(false);
+      }
+    }, 200);
+  });
+  // Also handle when music is paused/stopped from other controls
+  if (window.musicAudio) {
+    window.musicAudio.addEventListener('pause', () => setStatsCardDarkMode(false));
+    window.musicAudio.addEventListener('play', () => setStatsCardDarkMode(true));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', patchMusicDarkMode);
 /*!
- * 毛泽东生平地理轨迹可视化 - 主脚本文件
+ * Nelson Mandela's Life Journey Map Visualization - Main Script
  * Author: sansan0
  * GitHub: https://github.com/sansan0/mao-map
  */
 
-// ==================== i18n 国际化 ====================
+// ==================== Application Initialization ====================
 /**
- * 初始化多语言支持
+ * Initialize application with English language only
  */
-async function initI18n() {
+async function initApp() {
   try {
-    // 获取首选语言
-    const preferredLocale = i18n.getPreferredLocale();
-    console.log('检测到首选语言:', preferredLocale);
-
-    // 加载首选语言包
-    await i18n.loadLocale(preferredLocale);
-    await i18n.setLocale(preferredLocale);
-
-    // 初始化语言切换按钮
-    initLanguageSelector();
-
-    console.log('i18n 初始化完成, 当前语言:', i18n.getCurrentLocale());
+    console.log('Initializing Mandela Map application...');
+    
+    // Load geographic data
+    await loadGeographicData();
+    
+    // Initialize map
+    initMap();
+    
+    // Load trajectory data
+    trajectoryData = await loadTrajectoryData();
+    
+    if (!trajectoryData || !trajectoryData.events) {
+      throw new Error('Failed to load trajectory data');
+    }
+    
+    // Setup timeline
+    const slider = document.getElementById('timeline-slider');
+    if (slider && trajectoryData.events) {
+      slider.max = trajectoryData.events.length - 1;
+    }
+    
+    // Display initial event
+    showEventAtIndex(0, false);
+    updateStatistics();
+    
+    console.log('Application initialized successfully');
   } catch (error) {
-    console.error('i18n 初始化失败:', error);
+    console.error('Application initialization failed:', error);
   }
 }
 
-/**
- * 初始化语言选择器
- */
-function initLanguageSelector() {
-  const langButtons = document.querySelectorAll('.lang-btn');
-
-  langButtons.forEach(btn => {
-    const lang = btn.getAttribute('data-lang');
-
-    // 设置初始激活状态
-    if (lang === i18n.getCurrentLocale()) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-
-    // 绑定点击事件
-    btn.addEventListener('click', async () => {
-      const selectedLang = btn.getAttribute('data-lang');
-
-      // 更新按钮状态
-      langButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // 保存当前事件索引，用于语言切换后恢复位置
-      const savedEventIndex = currentEventIndex;
-
-      // 切换语言
-      await i18n.setLocale(selectedLang);
-
-      console.log('语言已切换至:', selectedLang);
-
-      // 重新加载事件数据
-      try {
-        trajectoryData = await loadTrajectoryData();
-
-        // 更新时间轴滑块的最大值
-        const slider = document.getElementById('timeline-slider');
-        if (slider && trajectoryData && trajectoryData.events) {
-          slider.max = trajectoryData.events.length - 1;
-        }
-
-        // 更新总事件数显示
-        const totalCountEls = document.querySelectorAll('[id^="total-event-count"]');
-        totalCountEls.forEach((el) => {
-          if (el && trajectoryData) el.textContent = trajectoryData.events.length;
-        });
-
-        // 清除所有现有的标记和路径
-        eventMarkers.forEach((marker) => map.removeLayer(marker));
-        eventMarkers = [];
-        locationMarkers.clear();
-        pathLayers.forEach((path) => {
-          if (path._map) map.removeLayer(path);
-        });
-        pathLayers = [];
-        motionPaths.clear();
-
-        // 恢复到之前保存的事件索引位置
-        // 确保索引在有效范围内
-        const restoredIndex = Math.min(savedEventIndex, trajectoryData.events.length - 1);
-        currentEventIndex = restoredIndex;
-        previousEventIndex = Math.max(0, restoredIndex - 1);
-        showEventAtIndex(restoredIndex, false);
-
-        // 更新统计信息
-        updateStatistics();
-
-        console.log('语言切换完成，恢复到事件索引:', restoredIndex);
-      } catch (error) {
-        console.error('重新加载事件数据失败:', error);
-      }
-
-      // 更新速度下拉选择框
-      if (window.updateSpeedSelect) {
-        window.updateSpeedSelect();
-      }
-    });
-  });
-}
-
-// ==================== 全局变量 ====================
+// ==================== Global Variables ====================
 let map = null;
 let regionsData = null;
 let trajectoryData = null;
@@ -117,12 +82,17 @@ let previousEventIndex = 0;
 let isPlaying = false;
 let playInterval = null;
 let eventMarkers = [];
+let locationLabels = [];
+let locationLabelsGroup = null;
 let pathLayers = [];
 let coordinateMap = new Map();
 let locationGroups = new Map();
 let locationMarkers = new Map();
 let statsHoverTimeout = null;
 let currentPlaySpeed = 1000;
+// Heat map state
+let heatmapLayerGroup = null;
+let isHeatmapVisible = false;
 let isPanelVisible = true;
 let isFeedbackModalVisible = false;
 let isCameraFollowEnabled = true;
@@ -138,7 +108,7 @@ let musicAudio = null;
 let musicProgressInterval = null;
 let musicVolume = 0.5;
 
-// 添加音频状态管理变量
+// Add audio state management variables
 let audioLoadingPromise = null;
 let isAutoPlayPending = false;
 let currentAudioEventListeners = new Set();
@@ -148,18 +118,18 @@ let highlightTimeout = null;
 let currentHighlightedEventIndex = -1;
 
 let animationConfig = {
-  pathDuration: 5000, // 控制路径绘制速度
-  timelineDuration: 1500, // 时间轴动画时长
-  cameraFollowDuration: 2000, // 镜头跟随动画时长
-  cameraPanDuration: 1500, //镜头平移动画时长
+  pathDuration: 5000, // Control path drawing speed
+  timelineDuration: 1500, // Timeline animation duration
+  cameraFollowDuration: 2000, // Camera follow animation duration
+  cameraPanDuration: 1500, // Camera pan animation duration
   isAnimating: false,
   motionOptions: {
-    auto: false, // 手动控制动画
+    auto: false, // Manual animation control
     easing: L.Motion.Ease.easeInOutQuart,
   },
 };
 
-// 镜头速度档位配置
+// Camera speed level configuration
 const CAMERA_SPEED_LEVELS = [
   {
     name: "ui.animation.speedLevels.fastest",
@@ -187,21 +157,26 @@ let motionPaths = new Map();
 let animationQueue = [];
 let isAnimationInProgress = false;
 
-// ==================== 全局常量 ====================
+// Current location marker
+let currentLocationMarker = null;
+let currentLocationTrackingLines = [];
+
+// ==================== Global Constants ====================
 const INTERNATIONAL_COORDINATES = {
-  "俄罗斯 莫斯科": [37.6176, 55.7558],
+  "Tanzania Dar es Salaam": [39.2695, -6.8021],
+  "United States New York": [-74.0060, 40.7128],
 };
 
 /**
- * 检测是否为移动设备
+ * Detect if device is mobile
  */
 function isMobileDevice() {
   return window.innerWidth <= 768;
 }
 
-// ==================== 移动端交互 ====================
+// ==================== Mobile Interactions ====================
 /**
- * 切换控制面板显示/隐藏状态
+ * Toggle control panel visibility
  */
 function toggleControlPanel() {
   const panel = document.getElementById("timeline-control");
@@ -233,7 +208,7 @@ function toggleControlPanel() {
 }
 
 /**
- * 获取控制面板高度
+ * Get control panel height
  */
 function getControlPanelHeight() {
   const panel = document.getElementById("timeline-control");
@@ -246,7 +221,7 @@ function getControlPanelHeight() {
 }
 
 /**
- * 初始化移动端交互功能
+ * Initialize mobile interaction features
  */
 function initMobileInteractions() {
   const toggleBtn = document.getElementById("toggle-panel-btn");
@@ -265,7 +240,7 @@ function initMobileInteractions() {
 }
 
 /**
- * 初始化详细面板拖拽关闭功能（移动端）
+ * Initialize detail panel drag-to-close functionality (mobile)
  */
 function initPanelDragClose() {
   if (!isMobileDevice()) return;
@@ -341,7 +316,7 @@ function initPanelDragClose() {
       try {
         hideDetailPanel();
       } catch (error) {
-        console.error("关闭面板时出错:", error);
+        console.error("Error closing panel:", error);
       }
 
       setTimeout(() => {
@@ -363,6 +338,19 @@ function initPanelDragClose() {
     }
 
     const touch = e.touches[0];
+        // Heat map toggle
+        const heatmapBtn = document.getElementById('heatmap-toggle-btn');
+        if (heatmapBtn) {
+          heatmapBtn.addEventListener('click', () => {
+            isHeatmapVisible = !isHeatmapVisible;
+            heatmapBtn.classList.toggle('active', isHeatmapVisible);
+            if (isHeatmapVisible) {
+              showHeatmap();
+            } else {
+              hideHeatmap();
+            }
+          });
+        }
     touchState.startY = touch.clientY;
     touchState.currentY = touch.clientY;
     touchState.startTime = Date.now();
@@ -527,11 +515,11 @@ function initPanelDragClose() {
 }
 
 /**
- * 初始化Leaflet地图
+ * Initialize Leaflet map
  */
 function initMap() {
   map = L.map("map", {
-    center: [35.8617, 104.1954],
+    center: [-29.6100, 24.5500],
     zoom: 5,
     minZoom: 4,
     maxZoom: 10,
@@ -542,20 +530,35 @@ function initMap() {
   });
 
   L.tileLayer(
-    "https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
-      subdomains: "1234",
-      attribution: "© 高德地图",
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 18,
     }
   ).addTo(map);
 
-  console.log("地图初始化完成");
+  // Add OpenStreetMap labels layer for better place names visibility
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
+    {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+      opacity: 0.3,
+      zIndex: 401,
+    }
+  ).addTo(map);
+
+  // Add zoom event listener for location labels
+  map.on('zoom', updateLocationLabels);
+  map.on('moveend', updateLocationLabels);
+
+  console.log("Map initialization completed");
+  updateLocationLabels();
 }
 
-// ==================== 统计面板控制 ====================
+// ==================== Stats Panel Control ====================
 /**
- * 初始化PC端统计面板悬停交互
+ * Initialize PC stats panel hover interaction
  */
 function initStatsHover() {
   const statsPanel = document.getElementById("stats-panel");
@@ -583,9 +586,63 @@ function initStatsHover() {
   statsPanel.addEventListener("mouseleave", hideStatsPanel);
 }
 
-// ==================== 详细信息面板控制 ====================
 /**
- * 初始化详细信息面板交互
+ * Update location labels on map based on zoom level
+ */
+function updateLocationLabels() {
+  // Remove previous labels
+  if (locationLabelsGroup) {
+    map.removeLayer(locationLabelsGroup);
+  }
+  locationLabels = [];
+  
+  const zoomLevel = map.getZoom();
+  
+  // Only show labels when zoomed in enough
+  if (zoomLevel < 6) return;
+  
+  // Create feature group for labels
+  locationLabelsGroup = L.featureGroup();
+  
+  // Only show birthplace and deathplace labels (Qunu = Birthplace, Soweto = Deathplace)
+  const locations = [
+    { name: "Qunu (Birthplace)", coords: [-32.1231, 28.3352] },
+    { name: "Soweto (Deathplace)", coords: [-26.2473, 27.8621] }
+  ];
+
+  locations.forEach(location => {
+    let style = `
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+      border: 1px solid white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    `;
+    if (location.name.includes('Soweto')) {
+      style += 'background: #e53935; border: 1.5px solid #b71c1c;';
+    } else {
+      style += 'background: rgba(52, 152, 219, 0.8);';
+    }
+    const label = L.marker(location.coords, {
+      icon: L.divIcon({
+        html: `<div style="${style}">${location.name}</div>`,
+        className: 'location-label',
+        iconSize: [100, 20],
+        iconAnchor: [50, 10]
+      })
+    });
+    locationLabelsGroup.addLayer(label);
+  });
+
+  locationLabelsGroup.addTo(map);
+}
+
+// ==================== Detail Info Panel Control ====================
+/**
+ * Initialize detail info panel interaction
  */
 function initDetailPanel() {
   const panel = document.getElementById("location-detail-panel");
@@ -621,7 +678,7 @@ function initDetailPanel() {
 }
 
 /**
- * 显示地点详细信息面板
+ * Show location detail info panel
  */
 function showDetailPanel(locationGroup) {
   const panel = document.getElementById("location-detail-panel");
@@ -635,7 +692,7 @@ function showDetailPanel(locationGroup) {
   const { location, events } = locationGroup;
   const visitCount = events.length;
 
-  // 使用当前语言的访问类型标签进行过滤
+  // Filter using current language's visit type label
   const transitLabel = i18n.t('ui.visitType.transit');
   const destinationLabel = i18n.t('ui.visitType.destination');
   const startLabel = i18n.t('ui.visitType.start');
@@ -650,7 +707,7 @@ function showDetailPanel(locationGroup) {
 
   titleEl.textContent = `📍 ${location}`;
 
-  // 使用国际化的摘要文本
+  // Use internationalized summary text
   const summaryText = i18n.t('ui.panel.visitSummary', { count: visitCount });
 
   let descParts = [];
@@ -679,10 +736,10 @@ function showDetailPanel(locationGroup) {
       let visitTypeLabel = "";
       let visitOrderClass = "";
 
-      // 使用国际化的顺序编号
+      // Use internationalized sequence numbering
       const orderNumber = i18n.t('ui.panel.orderNumber', { n: index + 1 });
 
-      // 根据访问类型获取对应的国际化标签
+      // Get corresponding internationalization label by visit type
       const birthLabel = i18n.t('ui.visitType.birth');
       const startLabel = i18n.t('ui.visitType.start');
       const destinationLabel = i18n.t('ui.visitType.destination');
@@ -710,14 +767,14 @@ function showDetailPanel(locationGroup) {
         visitOrderClass = "activity-order";
       }
 
-      // 处理事件描述，如果是途径类型，添加国际化的前缀
+      // Process event description; if transit type, add internationalization prefix
       let eventDescription = event.originalEvent || event.event;
       if (event.visitType === transitLabel && event.originalEvent) {
         const transitPrefix = i18n.t('ui.panel.transitPrefix');
         eventDescription = transitPrefix + event.originalEvent;
       }
 
-      // 使用国际化的年龄显示
+      // Use internationalized age display
       const ageDisplay = event.age
         ? `<div class="event-age">${i18n.t('ui.panel.eventAge', { age: event.age })}</div>`
         : "";
@@ -790,7 +847,7 @@ function showDetailPanel(locationGroup) {
 }
 
 /**
- * 隐藏详细信息面板
+ * Hide detail info panel
  */
 function hideDetailPanel() {
   const panel = document.getElementById("location-detail-panel");
@@ -812,14 +869,14 @@ function hideDetailPanel() {
     try {
       window.cleanupDragListeners();
     } catch (error) {
-      console.warn("清理拖拽监听器时出错:", error);
+      console.warn("Error cleaning up drag listeners:", error);
     }
   }
 }
 
-// ==================== 反馈功能控制 ====================
+// ==================== Feedback Feature Control ====================
 /**
- * 初始化反馈功能
+ * Initialize feedback feature
  */
 function initFeedbackModal() {
   const feedbackBtn = document.getElementById("feedback-btn");
@@ -879,7 +936,7 @@ function initFeedbackModal() {
 }
 
 /**
- * 显示反馈弹窗
+ * Show feedback modal
  */
 function showFeedbackModal() {
   const feedbackModal = document.getElementById("feedback-modal");
@@ -895,7 +952,7 @@ function showFeedbackModal() {
 }
 
 /**
- * 隐藏反馈弹窗
+ * Hide feedback modal
  */
 function hideFeedbackModal() {
   const feedbackModal = document.getElementById("feedback-modal");
@@ -911,7 +968,7 @@ function hideFeedbackModal() {
 }
 
 /**
- * 打开GitHub Issues页面
+ * Open GitHub Issues page
  */
 function openGitHubIssues() {
   const issuesUrl = "https://github.com/sansan0/mao-map/issues";
@@ -919,7 +976,7 @@ function openGitHubIssues() {
 }
 
 /**
- * 打开GitHub项目主页
+ * Open GitHub project homepage
  */
 function openGitHubProject() {
   const projectUrl = "https://github.com/sansan0/mao-map";
@@ -927,7 +984,7 @@ function openGitHubProject() {
 }
 
 /**
- * 检测是否为移动设备
+ * Detect if device is mobile
  */
 function isMobileDevice() {
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -939,7 +996,7 @@ function isMobileDevice() {
 }
 
 /**
- * 处理微信公众号操作（移动端复制，PC端显示二维码）
+ * Handle WeChat official account action (mobile: copy, PC: show QR code)
  */
 function handleWeChatAction() {
   hideFeedbackModal();
@@ -952,7 +1009,7 @@ function handleWeChatAction() {
 }
 
 /**
- * 复制微信公众号名称
+ * Copy WeChat official account name
  */
 function copyWeChatName() {
   const wechatName = i18n.t('messages.wechatName');
@@ -991,7 +1048,7 @@ function copyWeChatName() {
 }
 
 /**
- * 显示微信二维码弹窗
+ * Show WeChat QR code modal
  */
 function showWeChatQRModal() {
   const modal = document.getElementById("wechat-qr-modal");
@@ -1005,7 +1062,7 @@ function showWeChatQRModal() {
 }
 
 /**
- * 隐藏微信二维码弹窗
+ * Hide WeChat QR code modal
  */
 function hideWeChatQRModal() {
   const modal = document.getElementById("wechat-qr-modal");
@@ -1019,7 +1076,7 @@ function hideWeChatQRModal() {
 }
 
 /**
- * 初始化微信二维码弹窗
+ * Initialize WeChat QR code modal
  */
 function initWeChatQRModal() {
   const backdrop = document.getElementById("wechat-qr-backdrop");
@@ -1049,7 +1106,7 @@ function initWeChatQRModal() {
 }
 
 /**
- * 显示临时提示消息
+ * Show temporary prompt message
  */
 function showTemporaryMessage(message, type = "info") {
   const existingMessage = document.querySelector(".temp-message");
@@ -1107,7 +1164,7 @@ function showTemporaryMessage(message, type = "info") {
 }
 
 /**
- * 显示诗句动画消息（带状态控制）
+ * Show verse animation message (with status control)
  */
 function showPoetryMessage() {
   if (isPoetryAnimationPlaying) {
@@ -1151,7 +1208,7 @@ function showPoetryMessage() {
 }
 
 /**
- * 强制停止诗句动画
+ * Force stop verse animation
  */
 function forceStopPoetryAnimation() {
   if (isPoetryAnimationPlaying) {
@@ -1171,12 +1228,12 @@ function forceStopPoetryAnimation() {
   }
 }
 
-// ==================== 坐标数据处理 ====================
+// ==================== Coordinate Data Processing ====================
 /**
- * 从地区数据构建坐标映射表
+ * Build coordinate mapping table from region data
  */
 function buildCoordinateMapFromRegions() {
-  console.log("建立坐标映射...");
+  console.log("Building coordinate mapping...");
 
   if (regionsData && regionsData.regions) {
     regionsData.regions.forEach((region) => {
@@ -1198,108 +1255,69 @@ function buildCoordinateMapFromRegions() {
     coordinateMap.set(name, coords);
   });
 
-  console.log("坐标映射建立完成，共", coordinateMap.size, "个地点");
-  console.log("国际坐标:", Object.keys(INTERNATIONAL_COORDINATES));
+  console.log("Coordinate mapping established with", coordinateMap.size, "locations");
+  console.log("International coordinates:", Object.keys(INTERNATIONAL_COORDINATES));
 }
 
-// ==================== 数据加载 ====================
+// ==================== Data Loading ====================
 /**
- * 加载地理坐标数据
+ * Load geographic coordinate data
  */
 async function loadGeographicData() {
   try {
-    const response = await fetch("data/china_regions_coordinates.json");
+    const response = await fetch("data/south_africa_regions_coordinates.json");
 
     if (response.ok) {
       regionsData = await response.json();
       buildCoordinateMapFromRegions();
-      console.log("china_regions_coordinates.json 加载成功");
+      console.log("south_africa_regions_coordinates.json loaded successfully");
     } else {
-      throw new Error("china_regions_coordinates.json 加载失败");
+      throw new Error("south_africa_regions_coordinates.json failed to load");
     }
 
     return true;
   } catch (error) {
-    console.warn("外部地理数据加载失败:", error.message);
+    console.warn("External geographic data loading failed:", error.message);
     Object.entries(INTERNATIONAL_COORDINATES).forEach(([name, coords]) => {
       coordinateMap.set(name, coords);
     });
-    console.log("已加载备用国际坐标数据");
+    console.log("Fallback international coordinate data loaded");
     return true;
   }
 }
 
 /**
- * 加载轨迹事件数据
- * 英文版本使用英文事件描述，但坐标信息从中文数据获取（因为坐标映射基于中文地名）
+ * Load trajectory event data (English only)
  */
 async function loadTrajectoryData() {
   try {
-    const locale = i18n.getCurrentLocale();
-    const isEnglish = locale === 'en';
-
-    // 始终加载中文数据（用于坐标匹配）
-    const zhResponse = await fetch('data/mao_trajectory_events.json');
-    if (!zhResponse.ok) {
+    // Load English event data (95 events version)
+    const response = await fetch('data/mandela_trajectory_events_95_en.json');
+    if (!response.ok) {
       throw new Error(
-        `加载中文事件数据失败: ${zhResponse.status} - ${zhResponse.statusText}`
+        `Failed to load trajectory data: ${response.status} - ${response.statusText}`
       );
     }
-    const zhData = await zhResponse.json();
+    const data = await response.json();
 
     if (
-      !zhData.events ||
-      !Array.isArray(zhData.events) ||
-      zhData.events.length === 0
+      !data.events ||
+      !Array.isArray(data.events) ||
+      data.events.length === 0
     ) {
-      throw new Error("中文事件数据格式错误或为空");
+      throw new Error("Trajectory data format error or is empty");
     }
 
-    // 如果是英文，加载英文数据并合并坐标信息
-    if (isEnglish) {
-      const enResponse = await fetch('data/mao_trajectory_events_en.json');
-      if (!enResponse.ok) {
-        throw new Error(
-          `加载英文事件数据失败: ${enResponse.status} - ${enResponse.statusText}`
-        );
-      }
-      const enData = await enResponse.json();
-
-      if (
-        !enData.events ||
-        !Array.isArray(enData.events) ||
-        enData.events.length === 0
-      ) {
-        throw new Error("英文事件数据格式错误或为空");
-      }
-
-      // 使用英文的事件描述，但用中文的坐标信息
-      const mergedData = {
-        title: enData.title,
-        events: enData.events.map((enEvent, index) => {
-          const zhEvent = zhData.events[index];
-          return {
-            ...enEvent,
-            // 使用中文数据的坐标信息（因为坐标映射基于中文地名）
-            coordinates: zhEvent ? zhEvent.coordinates : enEvent.coordinates
-          };
-        })
-      };
-
-      console.log('英文数据已与中文坐标信息合并');
-      return processTrajectoryData(mergedData);
-    }
-
-    return processTrajectoryData(zhData);
+    return processTrajectoryData(data);
   } catch (error) {
-    console.error("加载轨迹数据失败:", error);
+    console.error("Failed to load trajectory data:", error);
     throw error;
   }
 }
 
-// ==================== 坐标匹配 ====================
+// ==================== Coordinate Matching ====================
 /**
- * 构建完整的行政区划路径
+ * Build complete administrative division path
  */
 function buildFullLocationPath(locationInfo) {
   if (!locationInfo) return null;
@@ -1329,7 +1347,7 @@ function buildFullLocationPath(locationInfo) {
 }
 
 /**
- * 根据位置信息获取坐标
+ * Get coordinates by location information
  */
 function getCoordinates(locationInfo) {
   if (!locationInfo) return null;
@@ -1343,15 +1361,15 @@ function getCoordinates(locationInfo) {
     return coordinateMap.get(fullPath);
   }
 
-  console.warn("无法匹配坐标:", locationInfo, "构建路径:", fullPath);
+  console.warn("Unable to match coordinates:", locationInfo, "path:", fullPath);
   return null;
 }
 
 /**
- * 获取坐标和格式化地点名称
+ * Get coordinates and format location name
  */
 function getCoordinatesWithLocation(locationInfo) {
-  if (!locationInfo) return { coordinates: null, location: "未知地点" };
+  if (!locationInfo) return { coordinates: null, location: "Unknown Location" };
 
   if (locationInfo.coordinates) {
     return {
@@ -1373,10 +1391,10 @@ function getCoordinatesWithLocation(locationInfo) {
 }
 
 /**
- * 格式化地点名称显示
+ * Format location name for display
  */
 function formatLocationName(locationInfo) {
-  if (!locationInfo) return "未知地点";
+  if (!locationInfo) return "Unknown Location";
 
   let parts = [];
 
@@ -1393,10 +1411,10 @@ function formatLocationName(locationInfo) {
     }
   }
 
-  return parts.length > 0 ? parts.join(" ") : "未知地点";
+  return parts.length > 0 ? parts.join(" ") : "Unknown Location";
 }
 
-// ==================== 轨迹数据处理 ====================
+// ==================== Trajectory Data Processing ====================
 /**
  * 处理原始轨迹数据，添加坐标信息
  */
@@ -1654,7 +1672,142 @@ function getPrimaryMarkerType(types) {
 }
 
 /**
- * 创建地点标记
+ * 获取事件类型的颜色类别
+ */
+function getEventTypeColorClass(movementType) {
+  if (!movementType) return 'event-marker-default';
+  
+  const typeStr = String(movementType).toLowerCase();
+  
+  if (typeStr.includes('birth')) return 'event-marker-birth';
+  if (typeStr.includes('prison') || typeStr.includes('imprisonment')) return 'event-marker-imprisonment';
+  if (typeStr.includes('president')) return 'event-marker-presidency';
+  if (typeStr.includes('international')) return 'event-marker-international';
+  if (typeStr.includes('activism') || typeStr.includes('defiance')) return 'event-marker-activism';
+  if (typeStr.includes('journey') || typeStr.includes('movement')) return 'event-marker-journey';
+  
+  return 'event-marker-default';
+}
+
+/**
+ * Update current location marker with animated tracking lines
+ */
+function updateCurrentLocationMarker(event, previousIndex) {
+  // Remove previous markers
+  if (currentLocationMarker) {
+    map.removeLayer(currentLocationMarker);
+    currentLocationMarker = null;
+  }
+  
+  // Remove previous tracking lines
+  currentLocationTrackingLines.forEach(line => {
+    if (map.hasLayer(line)) {
+      map.removeLayer(line);
+    }
+  });
+  currentLocationTrackingLines = [];
+  
+  if (!event || !event.endCoords) return;
+  
+  const [lng, lat] = event.endCoords;
+  
+  // Create animated current location marker
+  const currentLocationIcon = L.divIcon({
+    html: `
+      <div style="
+        position: relative;
+        width: 24px;
+        height: 24px;
+        animation: pulse 1.5s infinite;
+      ">
+        <div class="halo"></div>
+        <div style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 16px;
+          height: 16px;
+          background: #FF6B6B;
+          border: 3px solid white;
+          border-radius: 50%;
+          box-shadow: 0 0 8px rgba(255, 107, 107, 0.8);
+          z-index: 1000;
+        "></div>
+      </div>
+    `,
+    className: 'current-location-marker',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
+  });
+  
+  currentLocationMarker = L.marker([lat, lng], {
+    icon: currentLocationIcon,
+    zIndexOffset: 10000
+  }).addTo(map);
+  
+  // Draw animated tracking lines from previous location
+  if (previousIndex >= 0 && trajectoryData.events[previousIndex]) {
+    const prevEvent = trajectoryData.events[previousIndex];
+    if (prevEvent.endCoords) {
+      const [prevLng, prevLat] = prevEvent.endCoords;
+      
+      // Main tracking line
+      const trackingLine = L.polyline(
+        [[prevLat, prevLng], [lat, lng]],
+        {
+          color: '#FF6B6B',
+          weight: 3,
+          opacity: 0.7,
+          dashArray: '5, 5',
+          lineCap: 'round',
+          lineJoin: 'round'
+        }
+      ).addTo(map);
+      
+      currentLocationTrackingLines.push(trackingLine);
+      
+      // Animated glow line
+      const glowLine = L.polyline(
+        [[prevLat, prevLng], [lat, lng]],
+        {
+          color: '#FFB3B3',
+          weight: 6,
+          opacity: 0.3,
+          lineCap: 'round',
+          lineJoin: 'round'
+        }
+      ).addTo(map);
+      
+      currentLocationTrackingLines.push(glowLine);
+    }
+  }
+  
+  // Add transit points if they exist
+  if (event.transitCoords && event.transitCoords.length > 0) {
+    event.transitCoords.forEach((transitCoord, index) => {
+      if (transitCoord && transitCoord.length === 2) {
+        const [tLng, tLat] = transitCoord;
+        
+        const transitLine = L.polyline(
+          [[tLat, tLng], [lat, lng]],
+          {
+            color: '#FFA500',
+            weight: 2,
+            opacity: 0.5,
+            dashArray: '3, 3',
+            lineCap: 'round'
+          }
+        ).addTo(map);
+        
+        currentLocationTrackingLines.push(transitLine);
+      }
+    });
+  }
+}
+
+/**
+ * Create location marker
  */
 function createLocationMarker(
   locationGroup,
@@ -1664,14 +1817,24 @@ function createLocationMarker(
   const { coordinates, location, events, types } = locationGroup;
   const [lng, lat] = coordinates;
   const visitCount = events.length;
+  
+  // Get the primary event type for color coding
+  const primaryEvent = events[0];
+  const typeColorClass = getEventTypeColorClass(primaryEvent.movementType);
 
   const markerClasses = [
     "location-marker",
     getPrimaryMarkerType(types),
     getVisitCountClass(visitCount),
+    typeColorClass, // Add event type color coding
+    "marker-enter", // fade/scale entrance animation
   ];
 
-  if (isCurrent) markerClasses.push("current");
+  if (isCurrent) {
+    markerClasses.push("current");
+    markerClasses.push("glow-effect"); // Add glow effect to current location
+    markerClasses.push("marker-bounce"); // bounce when reached
+  }
   if (isVisited) markerClasses.push("visited");
 
   const markerContent = visitCount > 1 ? visitCount.toString() : "";
@@ -1688,9 +1851,103 @@ function createLocationMarker(
   const iconSize = iconSizes[sizeKey];
   const iconAnchor = [iconSize[0] / 2, iconSize[1] / 2];
 
+
+  // Milestone events: release from prison, inauguration, etc.
+  const milestoneEvents = [
+    'Released from prison',
+    'Inaugurated as President',
+    'Nobel Peace Prize',
+    'First democratic election',
+    'Final public appearance',
+    'Death in Soweto',
+    'Birth in Qunu',
+  ];
+
+  let isMilestone = false;
+  let milestoneLabel = '';
+  let isPresidency = false;
+  let isDeathplace = false;
+  let isInternationalTrip = false;
+  let flagEmoji = '';
+  for (const e of events) {
+    if (/inaugurat.*president/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '🎉';
+      isPresidency = true;
+      break;
+    } else if (/release.*prison/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '🕊️';
+      break;
+    } else if (/nobel.*peace/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '🏅';
+      break;
+    } else if (/first.*democratic.*election/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '🗳️';
+      break;
+    } else if (/final.*public.*appearance/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '👋';
+      break;
+    } else if (/death.*soweto/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '🕯️';
+      isDeathplace = true;
+      break;
+    } else if (/birth.*qunu/i.test(e.event)) {
+      isMilestone = true;
+      milestoneLabel = '👶';
+      break;
+    } else if (/international/i.test(e.movementType) || /trip/i.test(e.event)) {
+      isInternationalTrip = true;
+      // Simple flag detection for Tanzania and USA
+      if (/tanzania|dar es salaam/i.test(e.event) || /tanzania/i.test(e.event)) flagEmoji = '🇹🇿';
+      else if (/united states|new york/i.test(e.event) || /usa|us /i.test(e.event)) flagEmoji = '🇺🇸';
+      else flagEmoji = '🌍';
+    }
+  }
+
+  let htmlContent = markerContent;
+  if (isMilestone) {
+    htmlContent += `<span class=\"milestone-badge unique-badge\" title=\"Milestone\">${milestoneLabel}</span>`;
+  }
+  if (isInternationalTrip && flagEmoji) {
+    htmlContent += `<span class=\"milestone-badge flag-badge\" title=\"International Trip\">${flagEmoji}</span>`;
+    // Only add USA flag badge if the marker is for New York
+    if (flagEmoji === '🇺🇸' && location && location.city === 'New York') {
+      htmlContent += `<span class=\"usa-flag-badge\" title=\"USA Trip\">🇺🇸</span>`;
+    }
+  }
+
+  // Make deathplace marker red
+  let customClass = '';
+  if (isDeathplace) {
+    customClass = ' deathplace-marker';
+  }
+
+  // Add unique animated popup for presidency event and international trips
+  let markerPopup = null;
+  if (isPresidency) {
+    markerPopup = L.popup({
+      closeButton: false,
+      autoClose: false,
+      className: 'presidency-popup',
+      offset: [0, -iconSize[1] / 2]
+    }).setContent('<div class="presidency-popup-content">🇿🇦 Mandela becomes President! 🎉</div>');
+  } else if (isInternationalTrip && flagEmoji) {
+    markerPopup = L.popup({
+      closeButton: false,
+      autoClose: false,
+      className: 'flag-popup',
+      offset: [0, -iconSize[1] / 2]
+    }).setContent(`<div class='flag-popup-content'>International Trip ${flagEmoji}</div>`);
+  }
+
   const markerElement = L.divIcon({
-    className: markerClasses.join(" "),
-    html: markerContent,
+    className: markerClasses.join(" ") + customClass,
+    html: htmlContent,
     iconSize: iconSize,
     iconAnchor: iconAnchor,
   });
@@ -1701,6 +1958,14 @@ function createLocationMarker(
     keyboard: true,
     zIndexOffset: 1000,
   });
+
+  // Show animated popup for presidency/international trip event
+  if (markerPopup) {
+    setTimeout(() => {
+      marker.bindPopup(markerPopup).openPopup();
+      setTimeout(() => marker.closePopup(), 3500);
+    }, 800);
+  }
 
   const clickHandler = function (e) {
     e.originalEvent.stopPropagation();
@@ -1841,6 +2106,51 @@ function createMotionPath(
   motionPath._isConnectionPath = isConnectionPath;
   motionPath._isReverse = isReverse;
   motionPath._originalPathCoords = pathCoords;
+    // ==================== Heat Map Logic ====================
+    function showHeatmap() {
+      if (heatmapLayerGroup) {
+        map.removeLayer(heatmapLayerGroup);
+        heatmapLayerGroup = null;
+      }
+      // Count visits per location (by endCoords)
+      const freqMap = new Map();
+      if (!trajectoryData || !trajectoryData.events) return;
+      trajectoryData.events.forEach(ev => {
+        if (ev.endCoords && Array.isArray(ev.endCoords)) {
+          const key = ev.endCoords.join(',');
+          freqMap.set(key, (freqMap.get(key) || 0) + 1);
+        }
+      });
+      heatmapLayerGroup = L.layerGroup();
+      freqMap.forEach((count, key) => {
+        const [lng, lat] = key.split(',').map(Number);
+        // Intensity: min 20px, max 80px radius
+        const radius = 20 + Math.min(60, count * 10);
+        const opacity = 0.18 + Math.min(0.5, count * 0.07);
+        const div = L.divIcon({
+          className: 'heatmap-spot',
+          iconSize: [radius, radius],
+          iconAnchor: [radius/2, radius/2],
+          html: '',
+        });
+        const marker = L.marker([lat, lng], {
+          icon: div,
+          interactive: false,
+          keyboard: false,
+          opacity: opacity,
+          zIndexOffset: 800,
+        });
+        heatmapLayerGroup.addLayer(marker);
+      });
+      heatmapLayerGroup.addTo(map);
+    }
+
+    function hideHeatmap() {
+      if (heatmapLayerGroup) {
+        map.removeLayer(heatmapLayerGroup);
+        heatmapLayerGroup = null;
+      }
+    }
   motionPath._pathOptions = polylineOptions;
 
   return motionPath;
@@ -2064,6 +2374,87 @@ function updatePathsAnimated(targetIndex, isReverse = false) {
 }
 
 /**
+ * 计算和更新旅程统计信息
+ */
+function updateJourneyStats(upToIndex) {
+  if (!trajectoryData) return;
+  
+  const events = trajectoryData.events.slice(0, upToIndex + 1);
+  
+  // Calculate distance traveled
+  let totalDistance = 0;
+  const visitedProvinces = new Set();
+  let prisonYears = 0;
+  let internationalTrips = 0;
+  
+  for (let i = 1; i < events.length; i++) {
+    const event = events[i];
+    const prevEvent = events[i - 1];
+    
+    // Calculate distance between consecutive events
+    if (event.endCoords && prevEvent.endCoords) {
+      const [lng1, lat1] = prevEvent.endCoords;
+      const [lng2, lat2] = event.endCoords;
+      const distance = calculateDistance(lat1, lng1, lat2, lng2);
+      totalDistance += distance;
+    }
+    
+    // Count provinces/locations visited
+    if (event.coordinates && event.coordinates.end) {
+      const endLocation = event.coordinates.end;
+      if (endLocation.province) {
+        visitedProvinces.add(endLocation.province);
+      }
+    }
+    
+    // Count prison years - search in event description
+    const eventText = String(event.event).toLowerCase();
+    if (eventText.includes('prison') || eventText.includes('imprisoned') || 
+        eventText.includes('arrested') || eventText.includes('incarcerated') ||
+        eventText.includes('robben island') || eventText.includes('pollsmoor')) {
+      prisonYears++;
+    }
+    
+    // Count international trips - check if location is outside South Africa
+    if (event.coordinates && event.coordinates.end) {
+      const endProvince = event.coordinates.end.province;
+      // Check if the province is not a known South African province
+      const saProvinces = ['Western Cape', 'Eastern Cape', 'Northern Cape', 'Free State', 
+                           'KwaZulu-Natal', 'Gauteng', 'Limpopo', 'Mpumalanga', 'North West'];
+      if (endProvince && !saProvinces.includes(endProvince)) {
+        internationalTrips++;
+      }
+    }
+  }
+  
+  // Update UI
+  const distElement = document.getElementById('stat-distance');
+  const provincesElement = document.getElementById('stat-provinces');
+  const prisonElement = document.getElementById('stat-prison');
+  const internationalElement = document.getElementById('stat-international');
+  
+  if (distElement) distElement.textContent = Math.round(totalDistance) + ' km';
+  if (provincesElement) provincesElement.textContent = visitedProvinces.size;
+  if (prisonElement) prisonElement.textContent = prisonYears + ' yr' + (prisonYears !== 1 ? 's' : '');
+  if (internationalElement) internationalElement.textContent = internationalTrips;
+}
+
+/**
+ * 计算两点之间的距离（Haversine公式）
+ */
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371; // 地球半径，单位公里
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+/**
  * 更新事件标记
  */
 function updateEventMarkers(targetIndex) {
@@ -2154,6 +2545,10 @@ function showEventAtIndex(index, animated = true, isUserDrag = false) {
   updateCurrentEventInfo(event);
   updateProgress();
   updateEventMarkers(index);
+  updateJourneyStats(index); // Update journey statistics
+  
+  // Update current location marker with animated tracking lines
+  updateCurrentLocationMarker(event, previousEventIndex);
 
   if (animated && (isMovingForward || isMovingBackward)) {
     updatePathsAnimated(index, isMovingBackward);
@@ -3071,27 +3466,24 @@ function initCustomSpeedSelect() {
   };
 }
 
-// ==================== 音乐播放功能 ====================
+// ==================== Music Playback Function ====================
 const MUSIC_PLAYLIST = [
   {
     id: "internationale",
-    title: "国际歌",
-    artist: "经典革命歌曲",
-    duration: "04:55",
+    title: "Internationale",
+    artist: "Internationale",
+    duration: "03:45",
     urls: [
-      // 第二个是维基百科的公共版权音乐
-      "https://raw.githubusercontent.com/sansan0/mao-map/refs/heads/master/data/music/Internationale-cmn_(英特纳雄耐尔).ogg",
-      "https://upload.wikimedia.org/wikipedia/commons/5/5b/Internationale-cmn_%28%E8%8B%B1%E7%89%B9%E7%BA%B3%E9%9B%84%E8%80%90%E5%B0%94%29.ogg",
+      "data/music/Internationale-cmn_(英特纳雄耐尔).ogg",
     ],
   },
   {
-    id: "dongfanghong",
-    title: "东方红",
-    artist: "经典红色歌曲",
-    duration: "02:25",
+    id: "east_is_red",
+    title: "The East Is Red",
+    artist: "East Is Red (1950)",
+    duration: "04:30",
     urls: [
-      "https://raw.githubusercontent.com/sansan0/mao-map/refs/heads/master/data/music/东方红_-_The_East_Is_Red_(1950).ogg",
-      "https://upload.wikimedia.org/wikipedia/commons/d/d8/%E4%B8%9C%E6%96%B9%E7%BA%A2_-_The_East_Is_Red_%281950%29.ogg",
+      "data/music/东方红_-_The_East_Is_Red_(1950).ogg",
     ],
   },
 ];
@@ -4184,25 +4576,24 @@ function bindEvents() {
   });
 }
 
-// ==================== 启动应用 ====================
+// ==================== Application Startup ====================
 /**
- * 修改初始化应用函数，添加插件检查
+ * Initialize application with English language only
  */
 async function initApp() {
   try {
-    // 初始化多语言支持
-    await initI18n();
+    console.log('Initializing Mandela Map application...');
 
     initMap();
 
     const motionLoaded = checkMotionPlugin();
     if (!motionLoaded) {
       throw new Error(
-        "leaflet.motion 插件未正确加载，请确保已正确引入插件文件"
+        "leaflet.motion plugin not loaded correctly, please ensure the plugin file is properly included"
       );
     }
 
-    // 等待地图完全加载
+    // Wait for map to fully load
     await new Promise((resolve) => {
       if (map._loaded) {
         resolve();
@@ -4214,7 +4605,7 @@ async function initApp() {
 
     const geoDataLoaded = await loadGeographicData();
     if (!geoDataLoaded) {
-      throw new Error("地理数据加载失败");
+      throw new Error("Geographic data loading failed");
     }
 
     trajectoryData = await loadTrajectoryData();

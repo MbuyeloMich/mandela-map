@@ -1,0 +1,1027 @@
+{
+  "title": "曼德拉生平地理轨迹（1918-2013年）",
+  "events": [
+    {
+      "date": "1918-07-18",
+      "age": 0,
+      "movementType": "出生",
+      "event": "纳尔逊·罗利赫拉拉·曼德拉出生于南非特兰斯凯地区库努村，属于科萨人皇族",
+      "coordinates": {
+        "start": null,
+        "end": {
+          "province": "东开普省",
+          "city": "库努",
+          "district": "特兰斯凯"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1925-10",
+      "age": 7,
+      "movementType": "原地活动",
+      "event": "进入库努的卫理公会教会学校，开始接受正规教育",
+      "coordinates": {
+        "start": {
+          "province": "东开普省",
+          "city": "库努",
+          "district": "特兰斯凯"
+        },
+        "end": {
+          "province": "东开普省",
+          "city": "库努",
+          "district": "特兰斯凯"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1930",
+      "age": 12,
+      "movementType": "短途移动",
+      "event": "被送到克拉克伯里学校接受教育",
+      "coordinates": {
+        "start": {
+          "province": "东开普省",
+          "city": "库努",
+          "district": "特兰斯凯"
+        },
+        "end": {
+          "province": "东开普省",
+          "city": "克拉克伯里",
+          "district": "克拉克伯里"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1933-01",
+      "age": 14,
+      "movementType": "短途移动",
+      "event": "入读海菲尔德学院，继续完成中学教育",
+      "coordinates": {
+        "start": {
+          "province": "东开普省",
+          "city": "克拉克伯里",
+          "district": "克拉克伯里"
+        },
+        "end": {
+          "province": "东开普省",
+          "city": "伊丽莎白港",
+          "district": "海菲尔德"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1936-10",
+      "age": 18,
+      "movementType": "移动",
+      "event": "入读威特沃特斯兰德大学，为南非第一所接纳黑人学生的大学",
+      "coordinates": {
+        "start": {
+          "province": "东开普省",
+          "city": "伊丽莎白港",
+          "district": "海菲尔德"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "威特沃特斯兰德"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1941-12",
+      "age": 23,
+      "movementType": "移动",
+      "event": "逃离约翰内斯堡前往开普敦，躲避父亲包办的婚姻",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "威特沃特斯兰德"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1942-06",
+      "age": 24,
+      "movementType": "原地活动",
+      "event": "在开普敦获得法律学位并开始学徒律师工作",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1943-09",
+      "age": 25,
+      "movementType": "移动",
+      "event": "返回约翰内斯堡，与朋友开设律师事务所，专门处理黑人案件",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1944-06",
+      "age": 26,
+      "movementType": "原地活动",
+      "event": "加入非洲民族议会（ANC），开始反种族隔离活动",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1945-06",
+      "age": 27,
+      "movementType": "原地活动",
+      "event": "与伊夫林·梅斯结婚，开始家庭生活",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1946-09",
+      "age": 28,
+      "movementType": "原地活动",
+      "event": "被选为ANC约翰内斯堡分会主席，继续参与反种族隔离斗争",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1948-06",
+      "age": 30,
+      "movementType": "原地活动",
+      "event": "南非实行种族隔离制度，曼德拉成为反抗运动的主要领导者",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1952-01",
+      "age": 34,
+      "movementType": "原地活动",
+      "event": "成为ANC青年联盟主席，发起反抗种族隔离的大规模运动",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1952-09",
+      "age": 34,
+      "movementType": "原地活动",
+      "event": "因违反禁令法被判监禁，承担社区服务，继续地下运动",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1953-09",
+      "age": 35,
+      "movementType": "短途移动",
+      "event": "在约翰内斯堡建立地下律师事务所，继续法律援助工作",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1955-06",
+      "age": 36,
+      "movementType": "原地活动",
+      "event": "参与组织自由大会，制定南非民主宪章",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1956-12",
+      "age": 38,
+      "movementType": "原地活动",
+      "event": "被捕，因参与反政府活动被指控叛国罪，开始长期诉讼",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1960-03",
+      "age": 42,
+      "movementType": "原地活动",
+      "event": "参与沙佩维尔大屠杀抗争，被迫进入地下",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1961-06",
+      "age": 42,
+      "movementType": "原地活动",
+      "event": "成立武装组织乌姆赫托韦·西兹韦，准备武装斗争",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1961-12",
+      "age": 43,
+      "movementType": "移动",
+      "event": "秘密前往非洲其他国家寻求支持，对话坦桑尼亚和埃及领导人",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "约翰内斯堡市中心"
+        },
+        "end": {
+          "province": "坦桑尼亚",
+          "city": "达累斯萨拉姆",
+          "district": "达累斯萨拉姆"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1962-01",
+      "age": 43,
+      "movementType": "移动",
+      "event": "秘密返回南非，继续开展地下活动",
+      "coordinates": {
+        "start": {
+          "province": "坦桑尼亚",
+          "city": "达累斯萨拉姆",
+          "district": "达累斯萨拉姆"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1962-08",
+      "age": 44,
+      "movementType": "原地活动",
+      "event": "被捕，因非法出国和煽动罢工罪被判5年监禁",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1962-11",
+      "age": 44,
+      "movementType": "移动",
+      "event": "被监禁在罗本岛监狱，开始28年的监禁生涯",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1962-11-27",
+      "age": 44,
+      "movementType": "原地活动",
+      "event": "在罗本岛开始监禁，从事采石场劳动，遭受虐待",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1964-06",
+      "age": 45,
+      "movementType": "原地活动",
+      "event": "里瓦尼亚审判，被判终身监禁，继续在罗本岛服刑",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1966-03",
+      "age": 47,
+      "movementType": "原地活动",
+      "event": "在罗本岛监狱继续服刑，学习南非历史和语言",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1978-10",
+      "age": 60,
+      "movementType": "原地活动",
+      "event": "继续在罗本岛服刑，成为反种族隔离斗争的象征",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1982-03",
+      "age": 63,
+      "movementType": "移动",
+      "event": "从罗本岛被转移至普利托利亚中央监狱",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "罗本岛"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1985-02",
+      "age": 66,
+      "movementType": "原地活动",
+      "event": "被提供条件转移，接受采访和访客，部分获得自由",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1988-12",
+      "age": 70,
+      "movementType": "移动",
+      "event": "被转移至开普敦维克托·沃斯特监狱，条件改善",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1989-07",
+      "age": 70,
+      "movementType": "原地活动",
+      "event": "与南非总统德克勒克会面，谈判释放条件",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1990-02-11",
+      "age": 71,
+      "movementType": "释放",
+      "event": "获释！在南非总统德克勒克命令下，经过28年监禁后被无条件释放",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "维克托·沃斯特监狱"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1990-03",
+      "age": 71,
+      "movementType": "移动",
+      "event": "释放后立即返回约翰内斯堡，受到热烈欢迎",
+      "coordinates": {
+        "start": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1990-04",
+      "age": 71,
+      "movementType": "原地活动",
+      "event": "被选为ANC主席，继续领导反种族隔离斗争",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1990-06",
+      "age": 71,
+      "movementType": "国际移动",
+      "event": "对美国进行历史性访问，获得美国政界和民众的热烈欢迎",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "纽约州",
+          "city": "纽约",
+          "district": "纽约"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1990-12",
+      "age": 72,
+      "movementType": "原地活动",
+      "event": "参与南非宪法协商，推进民主改革",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1991-05",
+      "age": 72,
+      "movementType": "原地活动",
+      "event": "与温妮克离婚，平定婚姻关系",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1992-06",
+      "age": 73,
+      "movementType": "原地活动",
+      "event": "继续参与多方会谈，为民主选举做准备",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1994-04-27",
+      "age": 75,
+      "movementType": "选举",
+      "event": "南非第一次民主选举，曼德拉当选总统",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1994-05-10",
+      "age": 75,
+      "movementType": "就职",
+      "event": "正式就任南非总统，宣誓就职典礼举行",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1994-06",
+      "age": 75,
+      "movementType": "原地活动",
+      "event": "作为总统推行国家和解和民族融合政策",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1995-06",
+      "age": 76,
+      "movementType": "原地活动",
+      "event": "主持真相与和解委员会，处理过去的不公正",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1996-02",
+      "age": 77,
+      "movementType": "原地活动",
+      "event": "签署南非新宪法，确保民权和平等",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1996-06",
+      "age": 77,
+      "movementType": "原地活动",
+      "event": "与格拉萨·马谢尔结婚，开始新的生活",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1998-06",
+      "age": 79,
+      "movementType": "原地活动",
+      "event": "离任总统职位，交权给后继者、保持国家和解的努力",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1999-06",
+      "age": 80,
+      "movementType": "原地活动",
+      "event": "正式卸任总统，驻足约翰内斯堡继续人道主义工作",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "普利托利亚",
+          "district": "普利托利亚"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2001-06",
+      "age": 82,
+      "movementType": "原地活动",
+      "event": "被诊断为前列腺癌，继续从事慈善和人道主义工作",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2003-06",
+      "age": 84,
+      "movementType": "原地活动",
+      "event": "建立曼德拉基金会，致力于人权和教育事业",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2005-06",
+      "age": 86,
+      "movementType": "原地活动",
+      "event": "公开宣布感染艾滋病毒，继续为艾滋病防治工作奔走",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2007-07",
+      "age": 88,
+      "movementType": "国际移动",
+      "event": "出席《一生一人》纪录片首映式，向世界讲述自己的故事",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "西开普省",
+          "city": "开普敦",
+          "district": "开普敦"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2008-07",
+      "age": 89,
+      "movementType": "原地活动",
+      "event": "庆祝90岁生日，全球各地举办纪念活动",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2010-06",
+      "age": 91,
+      "movementType": "原地活动",
+      "event": "因呼吸系统疾病住院治疗，逐渐减少公开活动",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2012-06",
+      "age": 93,
+      "movementType": "原地活动",
+      "event": "健康状况恶化，主要在家中休息和康复",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "2013-12-05",
+      "age": 95,
+      "movementType": "逝世",
+      "event": "纳尔逊·罗利赫拉拉·曼德拉逝世，享年95岁。他留下了反抗种族隔离制度、实现南非民主的伟大遗产",
+      "coordinates": {
+        "start": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        },
+        "end": {
+          "province": "高地省",
+          "city": "约翰内斯堡",
+          "district": "索维托"
+        }
+      },
+      "verification": ""
+    }
+  ]
+}

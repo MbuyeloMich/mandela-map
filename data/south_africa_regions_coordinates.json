@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "description": "South African administrative regions and key locations data",
+    "total_count": 150,
+    "levels": {
+      "0": "Province",
+      "1": "City/District",
+      "2": "Suburb/Town"
+    },
+    "coordinate_format": "[longitude, latitude]"
+  },
+  "regions": [
+    {
+      "id": "wc",
+      "pid": "0",
+      "deep": 0,
+      "name": "Western Cape",
+      "ext_path": "Western Cape",
+      "coordinates": [19.0322, -33.9249]
+    },
+    {
+      "id": "wc01",
+      "pid": "wc",
+      "deep": 1,
+      "name": "Cape Town",
+      "ext_path": "Western Cape Cape Town",
+      "coordinates": [18.4241, -33.9249]
+    },
+    {
+      "id": "wc01_01",
+      "pid": "wc01",
+      "deep": 2,
+      "name": "Robben Island",
+      "ext_path": "Western Cape Cape Town Robben Island",
+      "coordinates": [18.3635, -33.8064]
+    },
+    {
+      "id": "wc01_02",
+      "pid": "wc01",
+      "deep": 2,
+      "name": "City Center",
+      "ext_path": "Western Cape Cape Town City Center",
+      "coordinates": [18.4241, -33.9249]
+    },
+    {
+      "id": "wc01_03",
+      "pid": "wc01",
+      "deep": 2,
+      "name": "Clarkbury",
+      "ext_path": "Western Cape Cape Town Clarkbury",
+      "coordinates": [18.5667, -33.6167]
+    },
+    {
+      "id": "ec",
+      "pid": "0",
+      "deep": 0,
+      "name": "Eastern Cape",
+      "ext_path": "Eastern Cape",
+      "coordinates": [26.6054, -33.3613]
+    },
+    {
+      "id": "ec01",
+      "pid": "ec",
+      "deep": 1,
+      "name": "Kunyu",
+      "ext_path": "Eastern Cape Kunyu",
+      "coordinates": [28.6167, -31.7833]
+    },
+    {
+      "id": "ec01_01",
+      "pid": "ec01",
+      "deep": 2,
+      "name": "Transkei",
+      "ext_path": "Eastern Cape Kunyu Transkei",
+      "coordinates": [28.6167, -31.7833]
+    },
+    {
+      "id": "ec02",
+      "pid": "ec",
+      "deep": 1,
+      "name": "Clarkbury",
+      "ext_path": "Eastern Cape Clarkbury",
+      "coordinates": [25.4167, -32.7833]
+    },
+    {
+      "id": "ec03",
+      "pid": "ec",
+      "deep": 1,
+      "name": "Port Elizabeth",
+      "ext_path": "Eastern Cape Port Elizabeth",
+      "coordinates": [25.6069, -33.9806]
+    },
+    {
+      "id": "ec03_01",
+      "pid": "ec03",
+      "deep": 2,
+      "name": "Healdtown",
+      "ext_path": "Eastern Cape Port Elizabeth Healdtown",
+      "coordinates": [25.6069, -33.9806]
+    },
+    {
+      "id": "gp",
+      "pid": "0",
+      "deep": 0,
+      "name": "Gauteng",
+      "ext_path": "Gauteng",
+      "coordinates": [25.7482, -25.7482]
+    },
+    {
+      "id": "gp01",
+      "pid": "gp",
+      "deep": 1,
+      "name": "Johannesburg",
+      "ext_path": "Gauteng Johannesburg",
+      "coordinates": [25.7461, -26.2023]
+    },
+    {
+      "id": "gp01_01",
+      "pid": "gp01",
+      "deep": 2,
+      "name": "Soweto",
+      "ext_path": "Gauteng Johannesburg Soweto",
+      "coordinates": [25.5409, -26.2754]
+    },
+    {
+      "id": "gp01_02",
+      "pid": "gp01",
+      "deep": 2,
+      "name": "Johannesburg Center",
+      "ext_path": "Gauteng Johannesburg Johannesburg Center",
+      "coordinates": [25.7461, -26.2023]
+    },
+    {
+      "id": "gp01_03",
+      "pid": "gp01",
+      "deep": 2,
+      "name": "Witwatersrand",
+      "ext_path": "Gauteng Johannesburg Witwatersrand",
+      "coordinates": [25.7461, -26.2023]
+    },
+    {
+      "id": "gp02",
+      "pid": "gp",
+      "deep": 1,
+      "name": "Pretoria",
+      "ext_path": "Gauteng Pretoria",
+      "coordinates": [28.1045, -25.7461]
+    },
+    {
+      "id": "gp02_01",
+      "pid": "gp02",
+      "deep": 2,
+      "name": "Pretoria",
+      "ext_path": "Gauteng Pretoria Pretoria",
+      "coordinates": [28.1045, -25.7461]
+    },
+    {
+      "id": "kzn",
+      "pid": "0",
+      "deep": 0,
+      "name": "KwaZulu-Natal",
+      "ext_path": "KwaZulu-Natal",
+      "coordinates": [29.6100, -29.0100]
+    },
+    {
+      "id": "kzn01",
+      "pid": "kzn",
+      "deep": 1,
+      "name": "Durban",
+      "ext_path": "KwaZulu-Natal Durban",
+      "coordinates": [31.0218, -29.8787]
+    },
+    {
+      "id": "mp",
+      "pid": "0",
+      "deep": 0,
+      "name": "Mpumalanga",
+      "ext_path": "Mpumalanga",
+      "coordinates": [30.3667, -25.5000]
+    },
+    {
+      "id": "lp",
+      "pid": "0",
+      "deep": 0,
+      "name": "Limpopo",
+      "ext_path": "Limpopo",
+      "coordinates": [28.5000, -24.0000]
+    },
+    {
+      "id": "nw",
+      "pid": "0",
+      "deep": 0,
+      "name": "North West",
+      "ext_path": "North West",
+      "coordinates": [25.5000, -25.5000]
+    },
+    {
+      "id": "fs",
+      "pid": "0",
+      "deep": 0,
+      "name": "Free State",
+      "ext_path": "Free State",
+      "coordinates": [25.5000, -28.5000]
+    },
+    {
+      "id": "nc",
+      "pid": "0",
+      "deep": 0,
+      "name": "Northern Cape",
+      "ext_path": "Northern Cape",
+      "coordinates": [22.0000, -29.5000]
+    },
+    {
+      "id": "tz",
+      "pid": "0",
+      "deep": 0,
+      "name": "Tanzania",
+      "ext_path": "Tanzania",
+      "coordinates": [34.8888, -6.3690]
+    },
+    {
+      "id": "tz01",
+      "pid": "tz",
+      "deep": 1,
+      "name": "Dar es Salaam",
+      "ext_path": "Tanzania Dar es Salaam",
+      "coordinates": [39.2695, -6.8021]
+    },
+    {
+      "id": "tz01_01",
+      "pid": "tz01",
+      "deep": 2,
+      "name": "Dar es Salaam",
+      "ext_path": "Tanzania Dar es Salaam Dar es Salaam",
+      "coordinates": [39.2695, -6.8021]
+    },
+    {
+      "id": "usa",
+      "pid": "0",
+      "deep": 0,
+      "name": "United States",
+      "ext_path": "United States",
+      "coordinates": [-95.7129, 37.0902]
+    },
+    {
+      "id": "usa01",
+      "pid": "usa",
+      "deep": 1,
+      "name": "New York",
+      "ext_path": "United States New York",
+      "coordinates": [-74.0060, 40.7128]
+    },
+    {
+      "id": "usa01_01",
+      "pid": "usa01",
+      "deep": 2,
+      "name": "New York",
+      "ext_path": "United States New York New York",
+      "coordinates": [-74.0060, 40.7128]
+    }
+  ]
+}

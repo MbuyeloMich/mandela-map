@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Mao Zedong's Life Journey Map",
-    "description": "Interactive map showing Chairman Mao's life trajectory"
+    "title": "Nelson Mandela's Life Journey Map",
+    "description": "Interactive map showing Nelson Mandela's life trajectory"
   },
   "ui": {
     "stats": {
@@ -149,7 +149,7 @@
     "dragListenerCleanup": "Error cleaning up drag listeners",
     "coordMappingFailed": "Unable to match coordinates",
     "eventDataLoadFailed": "Failed to load event data",
-    "eventDataEmpty": "mao_trajectory_events.json format error or event data is empty",
+    "eventDataEmpty": "mandela_trajectory_events.json format error or event data is empty",
     "trajectoryDataEmpty": "Trajectory data is empty",
     "geoDataLoadFailed": "Geographic data loading failed",
     "appInitFailed": "Application initialization failed",
