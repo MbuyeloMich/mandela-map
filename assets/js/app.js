@@ -1551,7 +1551,7 @@ async function loadGeographicData() {
 async function loadTrajectoryData() {
   try {
     // Load English event data (95 events version)
-    const response = await fetch('data/mandela_trajectory_events_en.json');
+    const response = await fetch('data/mandela_trajectory_events_95_en.json');
     if (!response.ok) {
       throw new Error(
         `Failed to load trajectory data: ${response.status} - ${response.statusText}`
@@ -2265,6 +2265,24 @@ function createLocationMarker(
     customClass = ' deathplace-marker';
   }
 
+  // Add unique animated popup for presidency event and international trips
+  let markerPopup = null;
+  if (isPresidency) {
+    markerPopup = L.popup({
+      closeButton: false,
+      autoClose: false,
+      className: 'presidency-popup',
+      offset: [0, -iconSize[1] / 2]
+    }).setContent('<div class="presidency-popup-content">🇿🇦 Mandela becomes President! 🎉</div>');
+  } else if (isInternationalTrip && flagEmoji) {
+    markerPopup = L.popup({
+      closeButton: false,
+      autoClose: false,
+      className: 'flag-popup',
+      offset: [0, -iconSize[1] / 2]
+    }).setContent(`<div class='flag-popup-content'>International Trip ${flagEmoji}</div>`);
+  }
+
   const markerElement = L.divIcon({
     className: markerClasses.join(" ") + customClass,
     html: htmlContent,
@@ -2278,6 +2296,14 @@ function createLocationMarker(
     keyboard: true,
     zIndexOffset: 1000,
   });
+
+  // Show animated popup for presidency/international trip event
+  if (markerPopup) {
+    setTimeout(() => {
+      marker.bindPopup(markerPopup).openPopup();
+      setTimeout(() => marker.closePopup(), 3500);
+    }, 800);
+  }
 
   const clickHandler = function (e) {
     e.originalEvent.stopPropagation();
