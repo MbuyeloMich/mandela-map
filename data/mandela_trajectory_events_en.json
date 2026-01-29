@@ -777,6 +777,101 @@
       "verification": ""
     },
     {
+      "date": "1994-08",
+      "age": 76,
+      "movementType": "Journey",
+      "event": "Presidential tour to Durban, promoting unity and reconstruction",
+      "coordinates": {
+        "start": {
+          "province": "Gauteng",
+          "city": "Pretoria",
+          "district": "Pretoria"
+        },
+        "end": {
+          "province": "KwaZulu-Natal",
+          "city": "Durban",
+          "district": "Durban"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1994-10",
+      "age": 76,
+      "movementType": "Journey",
+      "event": "Presidential visit to Cape Town, addressing Parliament and reconciliation initiatives",
+      "coordinates": {
+        "start": {
+          "province": "KwaZulu-Natal",
+          "city": "Durban",
+          "district": "Durban"
+        },
+        "end": {
+          "province": "Western Cape",
+          "city": "Cape Town",
+          "district": "Cape Town"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1995-03",
+      "age": 76,
+      "movementType": "Journey",
+      "event": "Presidential tour to Port Elizabeth, Eastern Cape development programs",
+      "coordinates": {
+        "start": {
+          "province": "Western Cape",
+          "city": "Cape Town",
+          "district": "Cape Town"
+        },
+        "end": {
+          "province": "Eastern Cape",
+          "city": "Port Elizabeth",
+          "district": "Port Elizabeth"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1995-05",
+      "age": 76,
+      "movementType": "Journey",
+      "event": "Presidential visit to Bloemfontein, Free State reconciliation meetings",
+      "coordinates": {
+        "start": {
+          "province": "Eastern Cape",
+          "city": "Port Elizabeth",
+          "district": "Port Elizabeth"
+        },
+        "end": {
+          "province": "Free State",
+          "city": "Bloemfontein",
+          "district": "Bloemfontein"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1995-06",
+      "age": 76,
+      "movementType": "Journey",
+      "event": "Returns to Johannesburg, supports national rugby team promoting unity through sport during World Cup",
+      "coordinates": {
+        "start": {
+          "province": "Free State",
+          "city": "Bloemfontein",
+          "district": "Bloemfontein"
+        },
+        "end": {
+          "province": "Gauteng",
+          "city": "Johannesburg",
+          "district": "Johannesburg"
+        }
+      },
+      "verification": ""
+    },
+    {
       "date": "1995-06",
       "age": 76,
       "movementType": "Local Activity",
@@ -796,6 +891,63 @@
       "verification": ""
     },
     {
+      "date": "1995-09",
+      "age": 77,
+      "movementType": "Journey",
+      "event": "Presidential tour to Mpumalanga, rural development initiatives",
+      "coordinates": {
+        "start": {
+          "province": "Gauteng",
+          "city": "Pretoria",
+          "district": "Pretoria"
+        },
+        "end": {
+          "province": "Mpumalanga",
+          "city": "Nelspruit",
+          "district": "Nelspruit"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1995-11",
+      "age": 77,
+      "movementType": "Journey",
+      "event": "Presidential visit to Limpopo, addressing rural poverty and education",
+      "coordinates": {
+        "start": {
+          "province": "Mpumalanga",
+          "city": "Nelspruit",
+          "district": "Nelspruit"
+        },
+        "end": {
+          "province": "Limpopo",
+          "city": "Polokwane",
+          "district": "Polokwane"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1996-01",
+      "age": 77,
+      "movementType": "Journey",
+      "event": "Presidential tour to North West province, community engagement and development",
+      "coordinates": {
+        "start": {
+          "province": "Limpopo",
+          "city": "Polokwane",
+          "district": "Polokwane"
+        },
+        "end": {
+          "province": "North West",
+          "city": "Mafikeng",
+          "district": "Mafikeng"
+        }
+      },
+      "verification": ""
+    },
+    {
       "date": "1996-02",
       "age": 77,
       "movementType": "Local Activity",
@@ -810,6 +962,25 @@
           "province": "Gauteng",
           "city": "Pretoria",
           "district": "Pretoria"
+        }
+      },
+      "verification": ""
+    },
+    {
+      "date": "1996-06",
+      "age": 77,
+      "movementType": "Journey",
+      "event": "Presidential visit to Northern Cape, mining communities and infrastructure development",
+      "coordinates": {
+        "start": {
+          "province": "Gauteng",
+          "city": "Pretoria",
+          "district": "Pretoria"
+        },
+        "end": {
+          "province": "Northern Cape",
+          "city": "Kimberley",
+          "district": "Kimberley"
         }
       },
       "verification": ""
