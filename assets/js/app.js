@@ -139,11 +139,20 @@ function addTrailGlow() {
   });
 }
 
+// Track active animation intervals per stat element to prevent conflicts
+const statAnimationIntervals = {};
+
 /**
  * 9. ANIMATED COUNTER - Animate number changes
  */
 function animateCounter(element, start, end, duration = 1000) {
   if (!element) return;
+  
+  // Clear any existing animation for this element
+  if (statAnimationIntervals[element.id]) {
+    clearInterval(statAnimationIntervals[element.id]);
+    delete statAnimationIntervals[element.id];
+  }
   
   const range = end - start;
   const increment = range / (duration / 16);
@@ -154,6 +163,7 @@ function animateCounter(element, start, end, duration = 1000) {
     if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
       current = end;
       clearInterval(timer);
+      delete statAnimationIntervals[element.id];
     }
     
     // Format based on element type
@@ -166,6 +176,9 @@ function animateCounter(element, start, end, duration = 1000) {
       element.textContent = value.toString();
     }
   }, 16);
+  
+  // Store the interval ID so we can clear it later
+  statAnimationIntervals[element.id] = timer;
 }
 
 /**
@@ -202,6 +215,35 @@ function updateStatsWithAnimation(newValues) {
   if (internationalElement && newValues.international !== undefined) {
     const currentVal = parseInt(internationalElement.textContent) || 0;
     animateCounter(internationalElement, currentVal, newValues.international, 600);
+  }
+}
+
+// Immediate write helper to guarantee final values
+function writeStatsDirect(values) {
+  // Clear any active animations to ensure values stick
+  ['stat-distance', 'stat-provinces', 'stat-prison', 'stat-international'].forEach(id => {
+    if (statAnimationIntervals[id]) {
+      clearInterval(statAnimationIntervals[id]);
+      delete statAnimationIntervals[id];
+    }
+  });
+
+  const distElement = document.getElementById('stat-distance');
+  const provincesElement = document.getElementById('stat-provinces');
+  const prisonElement = document.getElementById('stat-prison');
+  const internationalElement = document.getElementById('stat-international');
+
+  if (distElement && values.distance !== undefined) {
+    distElement.textContent = Math.round(values.distance).toLocaleString() + ' km';
+  }
+  if (provincesElement && values.provinces !== undefined) {
+    provincesElement.textContent = values.provinces.toString();
+  }
+  if (prisonElement && values.prison !== undefined) {
+    prisonElement.textContent = values.prison + (values.prison === 1 ? ' yr' : ' yrs');
+  }
+  if (internationalElement && values.international !== undefined) {
+    internationalElement.textContent = values.international.toString();
   }
 }
 
@@ -259,6 +301,8 @@ let playInterval = null;
 let eventMarkers = [];
 let locationLabels = [];
 let locationLabelsGroup = null;
+let deathplaceMarker = null;
+let birthplaceMarker = null;
 let pathLayers = [];
 let coordinateMap = new Map();
 let locationGroups = new Map();
@@ -727,8 +771,54 @@ function initMap() {
   map.on('zoom', updateLocationLabels);
   map.on('moveend', updateLocationLabels);
 
+  // Create persistent birthplace marker at Qunu
+  createBirthplaceMarker();
+
   console.log("Map initialization completed");
   updateLocationLabels();
+}
+
+/**
+ * Create persistent birth icon marker at birthplace (Qunu)
+ * Visible at all zoom levels
+ */
+function createBirthplaceMarker() {
+  if (!map) return;
+  
+  const qunuBirth = {
+    lat: -31.7833,
+    lng: 28.6167,
+    name: "Qunu (Birthplace)"
+  };
+  
+  // Remove existing marker if it exists
+  if (birthplaceMarker) {
+    map.removeLayer(birthplaceMarker);
+  }
+  
+  // Create a birth icon marker with tooltip
+  const birthIcon = L.divIcon({
+    html: '<div style="font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">👶</div>',
+    className: 'birthplace-icon-marker',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14]
+  });
+  
+  birthplaceMarker = L.marker([qunuBirth.lat, qunuBirth.lng], {
+    icon: birthIcon,
+    interactive: true,
+    zIndexOffset: 500,
+    title: qunuBirth.name
+  });
+  
+  // Add tooltip
+  birthplaceMarker.bindTooltip(qunuBirth.name, {
+    permanent: false,
+    direction: 'top',
+    offset: [0, -10]
+  });
+  
+  birthplaceMarker.addTo(map);
 }
 
 // ==================== Stats Panel Control ====================
@@ -779,14 +869,11 @@ function updateLocationLabels() {
   // Create feature group for labels
   locationLabelsGroup = L.featureGroup();
   
-  // Only show birthplace and deathplace labels (Qunu = Birthplace, Soweto = Deathplace)
-  const locations = [
-    { name: "Qunu (Birthplace)", coords: [-32.1231, 28.3352] },
-    { name: "Soweto (Deathplace)", coords: [-26.2473, 27.8621] }
-  ];
+  // No location labels - birthplace and deathplace are shown as persistent markers
+  const locations = [];
 
   locations.forEach(location => {
-    let style = `
+    const style = `
       color: white;
       padding: 4px 8px;
       border-radius: 4px;
@@ -795,12 +882,9 @@ function updateLocationLabels() {
       white-space: nowrap;
       border: 1px solid white;
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      background: rgba(52, 152, 219, 0.8);
     `;
-    if (location.name.includes('Soweto')) {
-      style += 'background: #e53935; border: 1.5px solid #b71c1c;';
-    } else {
-      style += 'background: rgba(52, 152, 219, 0.8);';
-    }
+    
     const label = L.marker(location.coords, {
       icon: L.divIcon({
         html: `<div style="${style}">${location.name}</div>`,
@@ -1483,7 +1567,9 @@ async function loadTrajectoryData() {
       throw new Error("Trajectory data format error or is empty");
     }
 
-    return processTrajectoryData(data);
+    const processed = processTrajectoryData(data);
+    processed.cumulativeStats = buildCumulativeStats(processed);
+    return processed;
   } catch (error) {
     console.error("Failed to load trajectory data:", error);
     throw error;
@@ -1635,6 +1721,86 @@ function processTrajectoryData(data) {
     ...data,
     events: processedEvents,
   };
+}
+
+// Precompute cumulative stats for fast, stable lookups
+function buildCumulativeStats(processedData) {
+  if (!processedData || !processedData.events) return [];
+
+  const saProvinces = [
+    'Western Cape',
+    'Eastern Cape',
+    'Northern Cape',
+    'Free State',
+    'KwaZulu-Natal',
+    'Gauteng',
+    'Limpopo',
+    'Mpumalanga',
+    'North West',
+  ];
+
+  const visitedProvinces = new Set();
+  let totalDistance = 0;
+  let prisonYears = 0;
+  let internationalTrips = 0;
+  const cumulative = [];
+
+  const resolveCoords = (loc) => {
+    if (!loc) return null;
+    if (loc.coordinates && Array.isArray(loc.coordinates)) return loc.coordinates;
+    const direct = getCoordinates(loc);
+    if (direct) return direct;
+    if (loc.province && coordinateMap.has(loc.province)) {
+      return coordinateMap.get(loc.province);
+    }
+    return null;
+  };
+
+  for (let i = 0; i < processedData.events.length; i++) {
+    const event = processedData.events[i];
+
+    const endLocation = event.coordinates?.end || event.endLocation;
+    if (endLocation?.province) {
+      visitedProvinces.add(endLocation.province);
+      if (!saProvinces.includes(endLocation.province)) {
+        internationalTrips++;
+      }
+    }
+
+    const eventText = String(event.event).toLowerCase();
+    if (
+      eventText.includes('prison') ||
+      eventText.includes('imprisoned') ||
+      eventText.includes('arrested') ||
+      eventText.includes('incarcerated') ||
+      eventText.includes('robben island') ||
+      eventText.includes('pollsmoor')
+    ) {
+      prisonYears++;
+    }
+
+    // Distance: only between consecutive event endpoints to avoid double counting
+    if (i > 0) {
+      const prev = processedData.events[i - 1];
+      const prevEnd = prev.endCoords || (prev.coordinates?.end ? resolveCoords(prev.coordinates.end) : null);
+      const currEnd = event.endCoords || (event.coordinates?.end ? resolveCoords(event.coordinates.end) : null);
+      if (prevEnd && currEnd) {
+        const [lng1, lat1] = prevEnd;
+        const [lng2, lat2] = currEnd;
+        const hopDist = calculateDistance(lat1, lng1, lat2, lng2);
+        if (!Number.isNaN(hopDist)) totalDistance += hopDist;
+      }
+    }
+
+    cumulative.push({
+      distance: Math.round(totalDistance),
+      provinces: visitedProvinces.size,
+      prison: prisonYears,
+      international: internationalTrips,
+    });
+  }
+
+  return cumulative;
 }
 
 // ==================== 位置聚合 ====================
@@ -2065,7 +2231,7 @@ function createLocationMarker(
       break;
     } else if (/death.*soweto/i.test(e.event)) {
       isMilestone = true;
-      milestoneLabel = '🕯️';
+      milestoneLabel = '⚰️';
       isDeathplace = true;
       break;
     } else if (/birth.*qunu/i.test(e.event)) {
@@ -2549,63 +2715,35 @@ function updatePathsAnimated(targetIndex, isReverse = false) {
  * 计算和更新旅程统计信息
  */
 function updateJourneyStats(upToIndex) {
-  if (!trajectoryData) return;
-  
-  const events = trajectoryData.events.slice(0, upToIndex + 1);
-  
-  // Calculate distance traveled
-  let totalDistance = 0;
-  const visitedProvinces = new Set();
-  let prisonYears = 0;
-  let internationalTrips = 0;
-  
-  for (let i = 1; i < events.length; i++) {
-    const event = events[i];
-    const prevEvent = events[i - 1];
-    
-    // Calculate distance between consecutive events
-    if (event.endCoords && prevEvent.endCoords) {
-      const [lng1, lat1] = prevEvent.endCoords;
-      const [lng2, lat2] = event.endCoords;
-      const distance = calculateDistance(lat1, lng1, lat2, lng2);
-      totalDistance += distance;
-    }
-    
-    // Count provinces/locations visited
-    if (event.coordinates && event.coordinates.end) {
-      const endLocation = event.coordinates.end;
-      if (endLocation.province) {
-        visitedProvinces.add(endLocation.province);
-      }
-    }
-    
-    // Count prison years - search in event description
-    const eventText = String(event.event).toLowerCase();
-    if (eventText.includes('prison') || eventText.includes('imprisoned') || 
-        eventText.includes('arrested') || eventText.includes('incarcerated') ||
-        eventText.includes('robben island') || eventText.includes('pollsmoor')) {
-      prisonYears++;
-    }
-    
-    // Count international trips - check if location is outside South Africa
-    if (event.coordinates && event.coordinates.end) {
-      const endProvince = event.coordinates.end.province;
-      // Check if the province is not a known South African province
-      const saProvinces = ['Western Cape', 'Eastern Cape', 'Northern Cape', 'Free State', 
-                           'KwaZulu-Natal', 'Gauteng', 'Limpopo', 'Mpumalanga', 'North West'];
-      if (endProvince && !saProvinces.includes(endProvince)) {
-        internationalTrips++;
-      }
-    }
+  if (!trajectoryData || !trajectoryData.events || trajectoryData.events.length === 0) return;
+
+  const numericIndex = Number.isFinite(upToIndex) ? upToIndex : currentEventIndex || 0;
+  const safeIndex = Math.min(Math.max(numericIndex, 0), trajectoryData.events.length - 1);
+  const stats = trajectoryData.cumulativeStats?.[safeIndex];
+  if (!stats) {
+    console.warn('No cumulative stats available for index:', safeIndex);
+    return;
   }
-  
-  // Update UI with animation
-  updateStatsWithAnimation({
-    distance: Math.round(totalDistance),
-    provinces: visitedProvinces.size,
-    prison: prisonYears,
-    international: internationalTrips
+
+  console.log('Journey stats', {
+    upToIndex: safeIndex,
+    eventsCount: safeIndex + 1,
+    distance: stats.distance,
+    provinces: stats.provinces,
+    prisonYears: stats.prison,
+    internationalTrips: stats.international,
   });
+
+  const values = {
+    distance: stats.distance || 0,
+    provinces: stats.provinces || 0,
+    prison: stats.prison || 0,
+    international: stats.international || 0,
+  };
+
+  // Write immediately, then animate on top to avoid flashing back to 0
+  writeStatsDirect(values);
+  updateStatsWithAnimation(values);
 }
 
 /**
@@ -2755,19 +2893,21 @@ function handleCameraFollow(currentEvent, previousIndex, animated = true) {
       duration: animated ? animationConfig.cameraFollowDuration / 1000 : 0, // 镜头时长
       paddingTopLeft: [50, 50],
       paddingBottomRight: [50, 100],
-      maxZoom: 8,
+      maxZoom: Math.max(map.getZoom(), 8), // Maintain current zoom if higher
       easeLinearity: 0.5,
     };
 
     map.fitBounds(bounds, panOptions);
   } else if (currentEvent.endCoords) {
     const [lng, lat] = currentEvent.endCoords;
+    const currentZoom = map.getZoom();
     const panOptions = {
       animate: animated,
       duration: animated ? animationConfig.cameraPanDuration / 1000 : 0, // 平移时长
       easeLinearity: 0.5,
     };
-    map.setView([lat, lng], Math.max(map.getZoom(), 6), panOptions);
+    // Maintain the current zoom level when following
+    map.setView([lat, lng], currentZoom, panOptions);
   }
 }
 
@@ -3083,10 +3223,15 @@ function updateProgress() {
  * 更新统计数据
  */
 function updateStatistics() {
-  if (!trajectoryData || !trajectoryData.events) return;
+  if (!trajectoryData || !trajectoryData.events) {
+    console.warn('Cannot update statistics: trajectoryData not loaded');
+    return;
+  }
 
   const locale = i18n.getCurrentLocale();
   const events = trajectoryData.events;
+
+  console.log('Updating statistics with', events.length, 'events');
 
   // 根据语言选择对应的movementType值
   const birthType = locale === 'en' ? 'Birth' : '出生';
@@ -3129,10 +3274,15 @@ function updateStatistics() {
     "time-span": timeSpan + yearSuffix,
   };
 
+  console.log('Calculated stats:', pcStats);
+
   Object.entries(pcStats).forEach(([id, value]) => {
     const element = document.getElementById(id);
     if (element) {
       element.textContent = value;
+      console.log(`Updated ${id} to:`, value);
+    } else {
+      console.warn(`Element with id ${id} not found`);
     }
   });
 }
@@ -3643,21 +3793,21 @@ function initCustomSpeedSelect() {
 // ==================== Music Playback Function ====================
 const MUSIC_PLAYLIST = [
   {
-    id: "internationale",
-    title: "Internationale",
-    artist: "Internationale",
+    id: "nkosi_sikelela",
+    title: "Nkosi Sikelela iAfrika (God Bless Africa)",
+    artist: "Stellenbosch University Choir",
     duration: "03:45",
     urls: [
-      "data/music/Internationale-cmn_(英特纳雄耐尔).ogg",
+      "data/music/Nkosi Sikelela iAfrika (God Bless Africa) - Stellenbosch University Choir (1).mp3",
     ],
   },
   {
-    id: "east_is_red",
-    title: "The East Is Red",
-    artist: "East Is Red (1950)",
+    id: "mandela_medley",
+    title: "Mandela Medley (Symphonic Soweto)",
+    artist: "Wouter Kellerman (Flute) & Soweto Gospel Choir",
     duration: "04:30",
     urls: [
-      "data/music/东方红_-_The_East_Is_Red_(1950).ogg",
+      "data/music/Mandela Medley (Symphonic Soweto) - Wouter Kellerman (Flute) & Soweto Gospel Choir.mp3",
     ],
   },
 ];
@@ -3767,9 +3917,13 @@ function autoPlayWhenReady(shouldPlay = true) {
  * 加载音频文件
  */
 function loadMusicAudio(song, autoPlay = false) {
-  if (!musicAudio) return Promise.resolve(false);
+  if (!musicAudio) {
+    console.error('musicAudio element not initialized');
+    return Promise.resolve(false);
+  }
 
   console.log(`加载音频: ${song.title}, 自动播放: ${autoPlay}`);
+  console.log('Song URLs:', song.urls);
 
   isAutoPlayPending = false;
 
@@ -3791,17 +3945,17 @@ function loadMusicAudio(song, autoPlay = false) {
   function tryLoadUrl() {
     return new Promise((resolve) => {
       if (urlIndex >= song.urls.length) {
-        console.warn("无法加载音频文件:", song.title);
+        console.error("无法加载音频文件:", song.title, "- All URLs failed");
         showTemporaryMessage(i18n.t('messages.musicLoadError'), "warning");
         resolve(false);
         return;
       }
 
       const url = song.urls[urlIndex];
-      console.log("尝试加载音频:", url);
+      console.log("尝试加载音频 URL:", url, `(attempt ${urlIndex + 1}/${song.urls.length})`);
 
       const loadTimeoutId = setTimeout(() => {
-        console.warn("音频加载超时:", url);
+        console.warn("音频加载超时 (8s timeout):", url);
         handleLoadError();
       }, 8000);
 
@@ -3813,7 +3967,7 @@ function loadMusicAudio(song, autoPlay = false) {
       };
 
       const handleLoadSuccess = () => {
-        console.log("音频加载成功:", url);
+        console.log("✅ 音频加载成功:", url);
         cleanup();
 
         updatePlayButton();
@@ -3828,8 +3982,15 @@ function loadMusicAudio(song, autoPlay = false) {
         }
       };
 
-      const handleLoadError = () => {
-        console.warn("音频加载失败:", url);
+      const handleLoadError = (e) => {
+        console.error("❌ 音频加载失败:", url);
+        if (e && e.target) {
+          console.error('Audio error details:', {
+            error: e.target.error,
+            networkState: e.target.networkState,
+            readyState: e.target.readyState
+          });
+        }
         cleanup();
         urlIndex++;
         tryLoadUrl().then(resolve);
@@ -3843,9 +4004,15 @@ function loadMusicAudio(song, autoPlay = false) {
       });
       musicAudio.addEventListener("error", handleLoadError, { once: true });
 
-      musicAudio.src = url;
-      musicAudio.volume = musicVolume;
-      musicAudio.load();
+      try {
+        musicAudio.src = url;
+        musicAudio.volume = musicVolume;
+        musicAudio.load();
+        console.log('Audio load() called successfully');
+      } catch (err) {
+        console.error('Exception when loading audio:', err);
+        handleLoadError();
+      }
     });
   }
 
