@@ -1551,7 +1551,7 @@ async function loadGeographicData() {
 async function loadTrajectoryData() {
   try {
     // Load English event data (95 events version)
-    const response = await fetch('data/mandela_trajectory_events_95_en.json');
+    const response = await fetch('data/mandela_trajectory_events_en.json');
     if (!response.ok) {
       throw new Error(
         `Failed to load trajectory data: ${response.status} - ${response.statusText}`
