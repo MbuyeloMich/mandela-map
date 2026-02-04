@@ -742,11 +742,16 @@ function initMap() {
     zoom: 5,
     minZoom: 4,
     maxZoom: 10,
-    zoomControl: true,
+    zoomControl: false,
     attributionControl: false,
     tap: true,
     tapTolerance: 15,
   });
+
+  // Add zoom control to top-right
+  L.control.zoom({
+    position: 'topright'
+  }).addTo(map);
 
   L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",

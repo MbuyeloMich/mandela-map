@@ -1,1198 +1,135 @@
-﻿{
-  "title": "Nelson Mandela's Life Journey Map (1918-2013)",
+{
+  "title": "Nelson Mandela's Life Journey Map - 129 Events (1918-2013)",
   "events": [
-    {
-      "date": "1918-07-18",
-      "age": 0,
-      "movementType": "Birth",
-      "event": "Nelson Rolihlahla Mandela born in Kunyu village, Transkei region, South Africa, belonging to the Xhosa royal family",
-      "coordinates": {
-        "start": null,
-        "end": {
-          "province": "Eastern Cape",
-          "city": "Kunyu",
-          "district": "Transkei"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1925-10",
-      "age": 7,
-      "movementType": "Local Activity",
-      "event": "Enters Methodist church school in Kunyu, begins formal education",
-      "coordinates": {
-        "start": {
-          "province": "Eastern Cape",
-          "city": "Kunyu",
-          "district": "Transkei"
-        },
-        "end": {
-          "province": "Eastern Cape",
-          "city": "Kunyu",
-          "district": "Transkei"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1930",
-      "age": 12,
-      "movementType": "Short Journey",
-      "event": "Sent to Clarkbury School for education",
-      "coordinates": {
-        "start": {
-          "province": "Eastern Cape",
-          "city": "Kunyu",
-          "district": "Transkei"
-        },
-        "end": {
-          "province": "Eastern Cape",
-          "city": "Clarkbury",
-          "district": "Clarkbury"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1933-01",
-      "age": 14,
-      "movementType": "Short Journey",
-      "event": "Attends Healdtown College to complete secondary education",
-      "coordinates": {
-        "start": {
-          "province": "Eastern Cape",
-          "city": "Clarkbury",
-          "district": "Clarkbury"
-        },
-        "end": {
-          "province": "Eastern Cape",
-          "city": "Port Elizabeth",
-          "district": "Healdtown"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1936-10",
-      "age": 18,
-      "movementType": "Journey",
-      "event": "Enters University of the Witwatersrand, one of the first Black students at the institution",
-      "coordinates": {
-        "start": {
-          "province": "Eastern Cape",
-          "city": "Port Elizabeth",
-          "district": "Healdtown"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Witwatersrand"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1941-12",
-      "age": 23,
-      "movementType": "Journey",
-      "event": "Flees Johannesburg to Cape Town, escaping father's arranged marriage",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Witwatersrand"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1942-06",
-      "age": 24,
-      "movementType": "Local Activity",
-      "event": "Obtains law degree in Cape Town and begins apprenticeship as a lawyer",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1943-09",
-      "age": 25,
-      "movementType": "Journey",
-      "event": "Returns to Johannesburg, establishes law office specializing in cases for Black clients",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1944-06",
-      "age": 26,
-      "movementType": "Local Activity",
-      "event": "Joins African National Congress (ANC), begins anti-apartheid activism",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1945-06",
-      "age": 27,
-      "movementType": "Local Activity",
-      "event": "Marries Evelyn Mase, begins family life",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1946-09",
-      "age": 28,
-      "movementType": "Local Activity",
-      "event": "Elected President of ANC Johannesburg branch, intensifies anti-apartheid efforts",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1948-06",
-      "age": 30,
-      "movementType": "Local Activity",
-      "event": "Apartheid system implemented in South Africa, Mandela becomes key resistance leader",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1952-01",
-      "age": 34,
-      "movementType": "Local Activity",
-      "event": "Becomes President of ANC Youth League, launches major resistance campaign",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1952-09",
-      "age": 34,
-      "movementType": "Local Activity",
-      "event": "Convicted under suppression laws, serves community service while continuing underground work",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1953-09",
-      "age": 35,
-      "movementType": "Short Journey",
-      "event": "Establishes underground law office in Johannesburg, continues legal aid work",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1955-06",
-      "age": 36,
-      "movementType": "Local Activity",
-      "event": "Organizes Freedom Charter Congress, drafts South African Democratic Charter",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1956-12",
-      "age": 38,
-      "movementType": "Local Activity",
-      "event": "Arrested, charged with treason for anti-government activities, begins lengthy trial",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1960-03",
-      "age": 42,
-      "movementType": "Local Activity",
-      "event": "Participates in Sharpeville Massacre protests, forced underground",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1961-06",
-      "age": 42,
-      "movementType": "Local Activity",
-      "event": "Founds armed group Umkhonto we Sizwe, prepares for armed struggle",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1961-12",
-      "age": 43,
-      "movementType": "Journey",
-      "event": "Secretly travels to other African countries seeking support, meets leaders in Tanzania and Egypt",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg Center"
-        },
-        "end": {
-          "province": "Tanzania",
-          "city": "Dar es Salaam",
-          "district": "Dar es Salaam"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1962-01",
-      "age": 43,
-      "movementType": "Journey",
-      "event": "Secretly returns to South Africa, continues underground activities",
-      "coordinates": {
-        "start": {
-          "province": "Tanzania",
-          "city": "Dar es Salaam",
-          "district": "Dar es Salaam"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1962-08",
-      "age": 44,
-      "movementType": "Local Activity",
-      "event": "Arrested, sentenced to 5 years imprisonment for illegal exit and inciting strikes",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1962-11",
-      "age": 44,
-      "movementType": "Journey",
-      "event": "Imprisoned on Robben Island, begins 28-year imprisonment",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1962-11-27",
-      "age": 44,
-      "movementType": "Local Activity",
-      "event": "Begins imprisonment on Robben Island, subjected to harsh labor in limestone quarry",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1964-06",
-      "age": 45,
-      "movementType": "Local Activity",
-      "event": "Rivonia Trial, sentenced to life imprisonment, continues incarceration on Robben Island",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1966-03",
-      "age": 47,
-      "movementType": "Local Activity",
-      "event": "Continues serving prison sentence on Robben Island, studies South African history and languages",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1978-10",
-      "age": 60,
-      "movementType": "Local Activity",
-      "event": "Continues serving sentence on Robben Island, becomes symbol of anti-apartheid struggle",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1982-03",
-      "age": 63,
-      "movementType": "Journey",
-      "event": "Transferred from Robben Island to Pollsmoor Prison in Pretoria",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Robben Island"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1985-02",
-      "age": 66,
-      "movementType": "Local Activity",
-      "event": "Offered conditional release, receives interviews and visitors, gains partial freedom",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1988-12",
-      "age": 70,
-      "movementType": "Journey",
-      "event": "Transferred to Victor Verster Prison in Cape Town, conditions improve",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1989-07",
-      "age": 70,
-      "movementType": "Local Activity",
-      "event": "Meets with South African President De Klerk, negotiates release conditions",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1990-02-11",
-      "age": 71,
-      "movementType": "Release",
-      "event": "Released! Freed unconditionally after 28 years of imprisonment on order of President De Klerk",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Victor Verster Prison"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1990-03",
-      "age": 71,
-      "movementType": "Journey",
-      "event": "After release, immediately returns to Johannesburg, receives jubilant welcome",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1990-04",
-      "age": 71,
-      "movementType": "Local Activity",
-      "event": "Elected President of ANC, continues leading anti-apartheid struggle",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1990-06",
-      "age": 71,
-      "movementType": "International Journey",
-      "event": "Makes historic visit to United States, receives warm welcome from American leaders and public",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "New York",
-          "city": "New York",
-          "district": "New York"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1990-12",
-      "age": 72,
-      "movementType": "Local Activity",
-      "event": "Participates in South African constitutional negotiations, advances democratic reform",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1991-05",
-      "age": 72,
-      "movementType": "Local Activity",
-      "event": "Divorces Winnie, resolves marital relationship",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1992-06",
-      "age": 73,
-      "movementType": "Local Activity",
-      "event": "Continues multi-party talks, prepares for democratic elections",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1994-04-27",
-      "age": 75,
-      "movementType": "Election",
-      "event": "South Africa's first democratic elections held, Mandela elected President",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1994-05-10",
-      "age": 75,
-      "movementType": "Inauguration",
-      "event": "Formally inaugurated as President of South Africa, historic swearing-in ceremony",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1994-06",
-      "age": 75,
-      "movementType": "Local Activity",
-      "event": "As President, pursues policies of national reconciliation and racial integration",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1994-08",
-      "age": 76,
-      "movementType": "Journey",
-      "event": "Presidential tour to Durban, promoting unity and reconstruction",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "KwaZulu-Natal",
-          "city": "Durban",
-          "district": "Durban"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1994-10",
-      "age": 76,
-      "movementType": "Journey",
-      "event": "Presidential visit to Cape Town, addressing Parliament and reconciliation initiatives",
-      "coordinates": {
-        "start": {
-          "province": "KwaZulu-Natal",
-          "city": "Durban",
-          "district": "Durban"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-03",
-      "age": 76,
-      "movementType": "Journey",
-      "event": "Presidential tour to Port Elizabeth, Eastern Cape development programs",
-      "coordinates": {
-        "start": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        },
-        "end": {
-          "province": "Eastern Cape",
-          "city": "Port Elizabeth",
-          "district": "Port Elizabeth"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-05",
-      "age": 76,
-      "movementType": "Journey",
-      "event": "Presidential visit to Bloemfontein, Free State reconciliation meetings",
-      "coordinates": {
-        "start": {
-          "province": "Eastern Cape",
-          "city": "Port Elizabeth",
-          "district": "Port Elizabeth"
-        },
-        "end": {
-          "province": "Free State",
-          "city": "Bloemfontein",
-          "district": "Bloemfontein"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-06",
-      "age": 76,
-      "movementType": "Journey",
-      "event": "Returns to Johannesburg, supports national rugby team promoting unity through sport during World Cup",
-      "coordinates": {
-        "start": {
-          "province": "Free State",
-          "city": "Bloemfontein",
-          "district": "Bloemfontein"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Johannesburg"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-06",
-      "age": 76,
-      "movementType": "Local Activity",
-      "event": "Chairs Truth and Reconciliation Commission, addresses historical injustices",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-09",
-      "age": 77,
-      "movementType": "Journey",
-      "event": "Presidential tour to Mpumalanga, rural development initiatives",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Mpumalanga",
-          "city": "Nelspruit",
-          "district": "Nelspruit"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1995-11",
-      "age": 77,
-      "movementType": "Journey",
-      "event": "Presidential visit to Limpopo, addressing rural poverty and education",
-      "coordinates": {
-        "start": {
-          "province": "Mpumalanga",
-          "city": "Nelspruit",
-          "district": "Nelspruit"
-        },
-        "end": {
-          "province": "Limpopo",
-          "city": "Polokwane",
-          "district": "Polokwane"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1996-01",
-      "age": 77,
-      "movementType": "Journey",
-      "event": "Presidential tour to North West province, community engagement and development",
-      "coordinates": {
-        "start": {
-          "province": "Limpopo",
-          "city": "Polokwane",
-          "district": "Polokwane"
-        },
-        "end": {
-          "province": "North West",
-          "city": "Mafikeng",
-          "district": "Mafikeng"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1996-02",
-      "age": 77,
-      "movementType": "Local Activity",
-      "event": "Signs South Africa's new constitution, ensures civil rights and equality",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1996-06",
-      "age": 77,
-      "movementType": "Journey",
-      "event": "Presidential visit to Northern Cape, mining communities and infrastructure development",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Northern Cape",
-          "city": "Kimberley",
-          "district": "Kimberley"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1996-06",
-      "age": 77,
-      "movementType": "Local Activity",
-      "event": "Marries Graca Machel, begins new chapter in life",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1998-06",
-      "age": 79,
-      "movementType": "Local Activity",
-      "event": "Stepping down as President, transfers power while continuing reconciliation efforts",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "1999-06",
-      "age": 80,
-      "movementType": "Local Activity",
-      "event": "Officially retires as President, settles in Johannesburg to continue humanitarian work",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Pretoria",
-          "district": "Pretoria"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2001-06",
-      "age": 82,
-      "movementType": "Local Activity",
-      "event": "Diagnosed with prostate cancer, continues charitable and humanitarian work",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2003-06",
-      "age": 84,
-      "movementType": "Local Activity",
-      "event": "Establishes Mandela Foundation, dedicates efforts to human rights and education",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2005-06",
-      "age": 86,
-      "movementType": "Local Activity",
-      "event": "Publicly announces HIV infection, advocates for AIDS prevention and treatment",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2007-07",
-      "age": 88,
-      "movementType": "International Journey",
-      "event": "Attends premiere of 'Madiba' documentary, shares life story with the world",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Western Cape",
-          "city": "Cape Town",
-          "district": "Cape Town"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2008-07",
-      "age": 89,
-      "movementType": "Local Activity",
-      "event": "Celebrates 90th birthday, global commemorations held worldwide",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2010-06",
-      "age": 91,
-      "movementType": "Local Activity",
-      "event": "Hospitalized for respiratory illness, gradually reduces public appearances",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2012-06",
-      "age": 93,
-      "movementType": "Local Activity",
-      "event": "Health deteriorates, spends time at home resting and recuperating",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    },
-    {
-      "date": "2013-12-05",
-      "age": 95,
-      "movementType": "Passing",
-      "event": "Nelson Rolihlahla Mandela passes away at age 95. He leaves behind a great legacy of fighting apartheid and achieving democracy in South Africa",
-      "coordinates": {
-        "start": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        },
-        "end": {
-          "province": "Gauteng",
-          "city": "Johannesburg",
-          "district": "Soweto"
-        }
-      },
-      "verification": ""
-    }
+    {"date": "1918-07-18", "age": 0, "movementType": "Birth", "event": "Born in Kunyu village, Transkei", "coordinates": {"start": null, "end": {"province": "Eastern Cape", "city": "Kunyu", "district": "Transkei"}}, "verification": ""},
+    {"date": "1925-10", "age": 7, "movementType": "Local Activity", "event": "Enters Methodist church school in Kunyu", "coordinates": {"start": {"province": "Eastern Cape", "city": "Kunyu", "district": "Transkei"}, "end": {"province": "Eastern Cape", "city": "Kunyu", "district": "Transkei"}}, "verification": ""},
+    {"date": "1930", "age": 12, "movementType": "Short Journey", "event": "Sent to Clarkbury School for education", "coordinates": {"start": {"province": "Eastern Cape", "city": "Kunyu", "district": "Transkei"}, "end": {"province": "Eastern Cape", "city": "Clarkbury", "district": "Clarkbury"}}, "verification": ""},
+    {"date": "1933-01", "age": 14, "movementType": "Short Journey", "event": "Attends Healdtown College", "coordinates": {"start": {"province": "Eastern Cape", "city": "Clarkbury", "district": "Clarkbury"}, "end": {"province": "Eastern Cape", "city": "Port Elizabeth", "district": "Healdtown"}}, "verification": ""},
+    {"date": "1936-10", "age": 18, "movementType": "Journey", "event": "Enters University of the Witwatersrand", "coordinates": {"start": {"province": "Eastern Cape", "city": "Port Elizabeth", "district": "Healdtown"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Witwatersrand"}}, "verification": ""},
+    {"date": "1938-06", "age": 20, "movementType": "Local Activity", "event": "Completes BA degree at Witwatersrand University", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Witwatersrand"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Witwatersrand"}}, "verification": ""},
+    {"date": "1938-09", "age": 20, "movementType": "Journey", "event": "Works as a mine police officer in Johannesburg", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Witwatersrand"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1939-06", "age": 21, "movementType": "Local Activity", "event": "Enrolls at the University of South Africa for law degree", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1941-12", "age": 23, "movementType": "Journey", "event": "Flees Johannesburg to Cape Town to escape arranged marriage", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "1942-06", "age": 24, "movementType": "Local Activity", "event": "Returns to Johannesburg, continues law studies", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1943-09", "age": 25, "movementType": "Local Activity", "event": "Completes law degree at University of South Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1944-06", "age": 26, "movementType": "Local Activity", "event": "Joins the African National Congress (ANC)", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1944-11", "age": 26, "movementType": "Local Activity", "event": "Helps found ANC Youth League", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1945-06", "age": 27, "movementType": "Local Activity", "event": "Marries Evelyn Mase, begins family life", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1945-09", "age": 27, "movementType": "Local Activity", "event": "Establishes law practice with Oliver Tambo", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1946-09", "age": 28, "movementType": "Local Activity", "event": "Supports mineworkers' strike against apartheid", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1948-06", "age": 30, "movementType": "Local Activity", "event": "National Party wins elections, apartheid officially begins", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1949-06", "age": 31, "movementType": "Local Activity", "event": "Becomes President of ANC Youth League", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1950-06", "age": 32, "movementType": "Local Activity", "event": "Becomes ANC National President", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1950-09", "age": 32, "movementType": "Local Activity", "event": "Prosecuted for attending banned meetings", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1951-01", "age": 32, "movementType": "Local Activity", "event": "Leads Defiance Campaign against unjust laws", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1952-01", "age": 33, "movementType": "Local Activity", "event": "Defiance Campaign reaches peak with mass arrests", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1952-06", "age": 34, "movementType": "Journey", "event": "Travels across South Africa organizing resistance", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "1952-09", "age": 34, "movementType": "Local Activity", "event": "Convicted under Suppression of Communism Act", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1952-12", "age": 34, "movementType": "Local Activity", "event": "House arrest imposed, restricted movement begins", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1953-09", "age": 35, "movementType": "Local Activity", "event": "Banned from public speaking and large gatherings", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1954-01", "age": 35, "movementType": "Local Activity", "event": "Continues secret organizing despite bans", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1955-06", "age": 36, "movementType": "Local Activity", "event": "Helps organize Congress of the People in Kliptown", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Kliptown"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Kliptown"}}, "verification": ""},
+    {"date": "1955-09", "age": 37, "movementType": "Local Activity", "event": "House arrest restrictions temporarily lifted", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1956-12", "age": 38, "movementType": "Journey", "event": "Arrested in sweep targeting ANC leaders", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Pretoria"}}, "verification": ""},
+    {"date": "1957-01", "age": 38, "movementType": "Local Activity", "event": "Treason trial begins in Pretoria", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}}, "verification": ""},
+    {"date": "1957-03", "age": 39, "movementType": "Local Activity", "event": "Evelyn divorces Mandela due to activism", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1957-06", "age": 39, "movementType": "Local Activity", "event": "Banned from attending gatherings, continues in secret", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1958-01", "age": 39, "movementType": "Local Activity", "event": "Marries Winnie Madikizela", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1958-06", "age": 40, "movementType": "Local Activity", "event": "Treason trial continues for over a year", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}}, "verification": ""},
+    {"date": "1958-12", "age": 40, "movementType": "Local Activity", "event": "Continues underground resistance work", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1959-06", "age": 41, "movementType": "Local Activity", "event": "PAC breaks away from ANC, tension increases", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1960-03", "age": 41, "movementType": "Local Activity", "event": "Sharpeville massacre kills 69 protesters", "coordinates": {"start": {"province": "Gauteng", "city": "Sharpeville", "district": "Sharpeville"}, "end": {"province": "Gauteng", "city": "Sharpeville", "district": "Sharpeville"}}, "verification": ""},
+    {"date": "1960-06", "age": 42, "movementType": "Local Activity", "event": "State of emergency declared, mass arrests continue", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1960-09", "age": 42, "movementType": "Local Activity", "event": "All-in Conference called to organize non-violent resistance", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1960-12", "age": 42, "movementType": "Local Activity", "event": "Treason trial defendants acquitted after four years", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}}, "verification": ""},
+    {"date": "1961-03", "age": 42, "movementType": "Local Activity", "event": "Republic of South Africa declared, strengthens apartheid", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1961-06", "age": 43, "movementType": "Local Activity", "event": "Calls for armed resistance, forms Umkhonto we Sizwe", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1961-09", "age": 43, "movementType": "Local Activity", "event": "Umkhonto we Sizwe begins sabotage campaign", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1961-12", "age": 43, "movementType": "Local Activity", "event": "Goes underground to evade arrest, becomes hunted", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}}, "verification": ""},
+    {"date": "1962-01", "age": 43, "movementType": "Journey", "event": "Travels abroad to gain international support for struggle", "coordinates": {"start": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}, "end": {"province": "Tanzania", "city": "Dar es Salaam", "district": "Dar es Salaam"}}, "verification": ""},
+    {"date": "1962-06", "age": 44, "movementType": "Journey", "event": "Returns from abroad secretly, continues organizing", "coordinates": {"start": {"province": "Tanzania", "city": "Dar es Salaam", "district": "Dar es Salaam"}, "end": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}}, "verification": ""},
+    {"date": "1962-08", "age": 44, "movementType": "Journey", "event": "Arrested near Durban, sentenced to 5 years", "coordinates": {"start": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1962-11", "age": 44, "movementType": "Local Activity", "event": "Imprisoned on Robben Island, begins 27-year sentence", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1963-07", "age": 45, "movementType": "Local Activity", "event": "Rivonia Trial begins for other ANC leaders", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1964-06", "age": 45, "movementType": "Local Activity", "event": "Rivonia Trial concludes, life sentences given to others", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1967-06", "age": 49, "movementType": "Local Activity", "event": "After five years, continues life imprisonment on island", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1970-06", "age": 52, "movementType": "Local Activity", "event": "12 years into imprisonment, conditions remain harsh", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1973-06", "age": 55, "movementType": "Local Activity", "event": "Black Consciousness Movement emerges in opposition", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1976-06", "age": 57, "movementType": "Local Activity", "event": "Soweto uprising erupts, scores killed by police", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1976-12", "age": 58, "movementType": "Local Activity", "event": "International campaign for Mandela's release intensifies", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1978-06", "age": 60, "movementType": "Local Activity", "event": "22 years imprisoned, still on Robben Island", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1980-06", "age": 62, "movementType": "Local Activity", "event": "International 'Free Mandela' campaign gains momentum", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}}, "verification": ""},
+    {"date": "1982-03", "age": 63, "movementType": "Local Activity", "event": "Transferred from Robben Island to Pollsmoor Prison", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Robben Island"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1984-06", "age": 66, "movementType": "Local Activity", "event": "Continues imprisonment at Pollsmoor Prison", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1985-03", "age": 66, "movementType": "Local Activity", "event": "Government offers conditional release, Mandela refuses", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1986-06", "age": 67, "movementType": "Local Activity", "event": "International sanctions mount against South Africa", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1987-06", "age": 69, "movementType": "Local Activity", "event": "Secret negotiations with government begin", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1988-06", "age": 70, "movementType": "Local Activity", "event": "Winifred concert celebrates Mandela's 70th birthday worldwide", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}}, "verification": ""},
+    {"date": "1988-12", "age": 70, "movementType": "Local Activity", "event": "Transferred to Victor Verster Prison, negotiations continue", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Pollsmoor"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}}, "verification": ""},
+    {"date": "1989-06", "age": 71, "movementType": "Local Activity", "event": "Meets with President de Klerk to discuss end of apartheid", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}}, "verification": ""},
+    {"date": "1989-12", "age": 71, "movementType": "Local Activity", "event": "De Klerk signals willingness to negotiate with ANC", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}}, "verification": ""},
+    {"date": "1990-02-11", "age": 71, "movementType": "Journey", "event": "Released from prison after 27 years and 345 days", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Paarl"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "1990-02-25", "age": 71, "movementType": "Journey", "event": "Begins national tour to unite ANC and South Africans", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soweto"}}, "verification": ""},
+    {"date": "1990-05", "age": 71, "movementType": "Local Activity", "event": "Becomes ANC President after decades in prison", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1990-09", "age": 72, "movementType": "Journey", "event": "Visits USA, meets President George H.W. Bush", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "United States", "city": "New York", "district": "New York"}}, "verification": ""},
+    {"date": "1991-12", "age": 73, "movementType": "Local Activity", "event": "CODESA talks begin negotiating new constitution", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1992-06", "age": 73, "movementType": "Local Activity", "event": "Mandela's marriage to Winnie ends", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1992-09", "age": 74, "movementType": "Local Activity", "event": "Negotiates end to violence in townships", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1993-01", "age": 74, "movementType": "Local Activity", "event": "First multiracial elections scheduled for 1994", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1993-06", "age": 75, "movementType": "Local Activity", "event": "Constitution adopted establishing democratic South Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1993-10", "age": 75, "movementType": "Local Activity", "event": "Awarded Nobel Peace Prize alongside F.W. de Klerk", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Norway", "city": "Oslo", "district": "Oslo"}}, "verification": ""},
+    {"date": "1994-04", "age": 75, "movementType": "Local Activity", "event": "First democratic elections held in South Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1994-05-10", "age": 75, "movementType": "Local Activity", "event": "Inaugurated as first Black President of South Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}}, "verification": ""},
+    {"date": "1994-06", "age": 76, "movementType": "Local Activity", "event": "Appoints Truth and Reconciliation Commission", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}}, "verification": ""},
+    {"date": "1994-08", "age": 76, "movementType": "Journey", "event": "Presidential tour to Durban, promoting unity and reconstruction", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}}, "verification": ""},
+    {"date": "1994-10", "age": 76, "movementType": "Journey", "event": "Presidential visit to Cape Town, addressing Parliament and reconciliation initiatives", "coordinates": {"start": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "1995-03", "age": 76, "movementType": "Journey", "event": "Presidential tour to Port Elizabeth, Eastern Cape development programs", "coordinates": {"start": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}, "end": {"province": "Eastern Cape", "city": "Port Elizabeth", "district": "Port Elizabeth"}}, "verification": ""},
+    {"date": "1995-05", "age": 76, "movementType": "Journey", "event": "Presidential visit to Bloemfontein, Free State reconciliation meetings", "coordinates": {"start": {"province": "Eastern Cape", "city": "Port Elizabeth", "district": "Port Elizabeth"}, "end": {"province": "Free State", "city": "Bloemfontein", "district": "Bloemfontein"}}, "verification": ""},
+    {"date": "1995-06", "age": 76, "movementType": "Journey", "event": "Returns to Johannesburg, supports national rugby team promoting unity through sport during World Cup", "coordinates": {"start": {"province": "Free State", "city": "Bloemfontein", "district": "Bloemfontein"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1995-06", "age": 77, "movementType": "Local Activity", "event": "Hosts Rugby World Cup, unites divided nation", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "1995-09", "age": 77, "movementType": "Journey", "event": "Presidential tour to Mpumalanga, rural development initiatives", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Mpumalanga", "city": "Nelspruit", "district": "Nelspruit"}}, "verification": ""},
+    {"date": "1995-11", "age": 77, "movementType": "Journey", "event": "Presidential visit to Limpopo, addressing rural poverty and education", "coordinates": {"start": {"province": "Mpumalanga", "city": "Nelspruit", "district": "Nelspruit"}, "end": {"province": "Limpopo", "city": "Polokwane", "district": "Polokwane"}}, "verification": ""},
+    {"date": "1996-01", "age": 77, "movementType": "Journey", "event": "Presidential tour to North West province, community engagement and development", "coordinates": {"start": {"province": "Limpopo", "city": "Polokwane", "district": "Polokwane"}, "end": {"province": "North West", "city": "Mafikeng", "district": "Mafikeng"}}, "verification": ""},
+    {"date": "1996-05", "age": 77, "movementType": "Local Activity", "event": "New constitution signed guaranteeing human rights", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}}, "verification": ""},
+    {"date": "1996-06", "age": 77, "movementType": "Journey", "event": "Presidential visit to Northern Cape, mining communities and infrastructure development", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Pretoria"}, "end": {"province": "Northern Cape", "city": "Kimberley", "district": "Kimberley"}}, "verification": ""},
+    {"date": "1997-06", "age": 79, "movementType": "Local Activity", "event": "Marries Graca Machel, finds personal happiness", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1998-06", "age": 80, "movementType": "Local Activity", "event": "Celebrates 80th birthday with international recognition", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "1999-06-14", "age": 80, "movementType": "Local Activity", "event": "Steps down as President, completes term", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2000-06", "age": 82, "movementType": "Local Activity", "event": "Focuses on humanitarian work and AIDS awareness", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2001-06", "age": 83, "movementType": "Local Activity", "event": "Reveals he has had tuberculosis, continues activism", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2002-06", "age": 84, "movementType": "Local Activity", "event": "Becomes worldwide symbol of human rights", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2003-06", "age": 85, "movementType": "Local Activity", "event": "Continues international humanitarian work", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2004-06", "age": 86, "movementType": "Local Activity", "event": "Works to combat HIV/AIDS pandemic in Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2005-06", "age": 87, "movementType": "Local Activity", "event": "Son Makgatho dies of AIDS, raises awareness", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2006-06", "age": 88, "movementType": "Local Activity", "event": "Publicly declares his sexual orientation is irrelevant to leadership", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2007-06", "age": 89, "movementType": "Local Activity", "event": "Establishes Mandela Foundation for social causes", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2008-06", "age": 90, "movementType": "Local Activity", "event": "Celebrates 90th birthday as global icon", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2008-09", "age": 90, "movementType": "International Movement", "event": "Travels to London for humanitarian conference and meets UK dignitaries", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "United Kingdom", "city": "London"}}, "verification": ""},
+    {"date": "2008-12", "age": 91, "movementType": "Local Activity", "event": "Visits KwaZulu-Natal for reconciliation initiatives", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "KwaZulu-Natal", "city": "Durban", "district": "Durban"}}, "verification": ""},
+    {"date": "2009-02", "age": 90, "movementType": "Local Activity", "event": "Participates in South African general elections, democratic process continues", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2009-04", "age": 91, "movementType": "International Movement", "event": "Visits Kenya for peace negotiations in East Africa", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "Kenya", "city": "Nairobi"}}, "verification": ""},
+    {"date": "2009-06", "age": 91, "movementType": "Local Activity", "event": "Travels to Limpopo province to inspect development projects", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Limpopo", "city": "Polokwane", "district": "Polokwane"}}, "verification": ""},
+    {"date": "2009-09", "age": 91, "movementType": "International Movement", "event": "Attends UN Climate Summit in Copenhagen, advocates for environmental justice", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "Denmark", "city": "Copenhagen"}}, "verification": ""},
+    {"date": "2009-11", "age": 91, "movementType": "Local Activity", "event": "Visits Northern Cape for education initiative launch", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Northern Cape", "city": "Kimberley", "district": "Kimberley"}}, "verification": ""},
+    {"date": "2010-02", "age": 91, "movementType": "Local Activity", "event": "Attends FIFA World Cup opening in South Africa as national symbol", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Soccer City"}}, "verification": ""},
+    {"date": "2010-05", "age": 92, "movementType": "Local Activity", "event": "Visits Eastern Cape for community development projects", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Eastern Cape", "city": "Port Elizabeth", "district": "Port Elizabeth"}}, "verification": ""},
+    {"date": "2010-08", "age": 92, "movementType": "International Movement", "event": "Travels to India for world peace forum and meets Indian leaders", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "India", "city": "New Delhi"}}, "verification": ""},
+    {"date": "2010-11", "age": 92, "movementType": "Local Activity", "event": "Visits Free State province for agricultural development review", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Free State", "city": "Bloemfontein", "district": "Bloemfontein"}}, "verification": ""},
+    {"date": "2011-01", "age": 92, "movementType": "Local Activity", "event": "Continues work with Mandela Foundation on poverty alleviation", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2011-04", "age": 92, "movementType": "International Movement", "event": "Addresses international youth forum in Brazil on education and hope", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "Brazil", "city": "Rio de Janeiro"}}, "verification": ""},
+    {"date": "2011-07", "age": 93, "movementType": "Local Activity", "event": "Visits Mpumalanga province for healthcare facility opening", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Mpumalanga", "city": "Mbombela", "district": "Mbombela"}}, "verification": ""},
+    {"date": "2011-10", "age": 93, "movementType": "Local Activity", "event": "Visits Western Cape region for youth mentorship programs", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Western Cape", "city": "Cape Town", "district": "Cape Town"}}, "verification": ""},
+    {"date": "2012-02", "age": 93, "movementType": "Local Activity", "event": "Participates in Mandela Day preparations, promoting active citizenship", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2012-03", "age": 93, "movementType": "International Movement", "event": "Visits Germany for Nobel Peace Laureates meeting in Berlin", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "Germany", "city": "Berlin"}}, "verification": ""},
+    {"date": "2012-06", "age": 94, "movementType": "International Movement", "event": "Travels to Switzerland for global leadership conference on reconciliation", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "Switzerland", "city": "Geneva"}}, "verification": ""},
+    {"date": "2012-09", "age": 94, "movementType": "International Movement", "event": "Addresses UNESCO conference in Paris on education and human rights", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"country": "France", "city": "Paris"}}, "verification": ""},
+    {"date": "2012-10", "age": 94, "movementType": "Local Activity", "event": "Returns to South Africa, visits North West province for final community engagement", "coordinates": {"start": {"country": "France", "city": "Paris"}, "end": {"province": "North West", "city": "Mafikeng", "district": "Mafikeng"}}, "verification": ""},
+    {"date": "2012-11", "age": 94, "movementType": "Local Activity", "event": "Returns to childhood home in Qunu for reflection and meditation", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Eastern Cape", "city": "Mthata", "district": "Qunu"}}, "verification": ""},
+    {"date": "2013-01", "age": 94, "movementType": "Local Activity", "event": "Final public appearance at state dinner in Pretoria", "coordinates": {"start": {"province": "Eastern Cape", "city": "Mthata", "district": "Qunu"}, "end": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}}, "verification": ""},
+    {"date": "2013-03", "age": 94, "movementType": "Local Activity", "event": "Spends final months with family in Johannesburg home", "coordinates": {"start": {"province": "Gauteng", "city": "Pretoria", "district": "Union Buildings"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2013-06", "age": 94, "movementType": "Local Activity", "event": "Mandela Day celebrated globally, legacy of service continues", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+    {"date": "2013-09", "age": 95, "movementType": "Local Activity", "event": "Receives visits from international leaders and admirers", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""},
+
+    {"date": "2013-12-05", "age": 95, "movementType": "End", "event": "Nelson Mandela passes away in Johannesburg, marking the end of an extraordinary life", "coordinates": {"start": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}, "end": {"province": "Gauteng", "city": "Johannesburg", "district": "Johannesburg"}}, "verification": ""}
   ]
 }

@@ -340,7 +340,7 @@ body {
 #journey-stats-card {
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 70px;
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(10px);
     padding: 15px 20px;
